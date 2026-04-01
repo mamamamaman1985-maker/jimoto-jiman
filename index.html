@@ -8,38 +8,20 @@
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {
-  --indigo: #185FA5;
-  --indigo-dark: #0C447C;
-  --indigo-light: #E6F1FB;
-  --amber: #BA7517;
-  --amber-light: #FAEEDA;
-  --coral: #D85A30;
-  --coral-light: #FAECE7;
-  --green: #3B6D11;
-  --green-light: #EAF3DE;
-  --teal: #0F6E56;
-  --teal-light: #E1F5EE;
-  --purple: #534AB7;
-  --purple-light: #EEEDFE;
-  --bg: #F5F7FA;
-  --surface: #FFFFFF;
-  --text: #2C2C2A;
-  --text-sub: #5F5E5A;
-  --border: rgba(0,0,0,0.08);
-  --radius: 14px;
-  --radius-sm: 8px;
+  --indigo: #185FA5; --indigo-dark: #0C447C; --indigo-light: #E6F1FB;
+  --amber: #BA7517; --amber-light: #FAEEDA;
+  --coral: #D85A30; --coral-light: #FAECE7;
+  --green: #3B6D11; --green-light: #EAF3DE;
+  --teal: #0F6E56; --teal-light: #E1F5EE;
+  --purple: #534AB7; --purple-light: #EEEDFE;
+  --bg: #F5F7FA; --surface: #FFFFFF;
+  --text: #2C2C2A; --text-sub: #5F5E5A;
+  --border: rgba(0,0,0,0.08); --radius: 14px; --radius-sm: 8px;
 }
-body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; padding-bottom: 72px; }
 
 /* HEADER */
-header {
-  background: var(--indigo-dark);
-  color: #fff;
-  padding: 0 1.25rem;
-  display: flex; align-items: center; justify-content: space-between;
-  height: 58px; position: sticky; top: 0; z-index: 100;
-  box-shadow: 0 2px 12px rgba(12,68,124,0.35);
-}
+header { background: var(--indigo-dark); color: #fff; padding: 0 1.25rem; display: flex; align-items: center; justify-content: space-between; height: 58px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 12px rgba(12,68,124,0.35); }
 .logo { font-family: 'Noto Serif JP', serif; font-size: 1.25rem; font-weight: 700; letter-spacing: 0.06em; display: flex; align-items: center; gap: 10px; }
 .logo-badge { background: rgba(255,255,255,0.18); border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
 .post-btn { background: var(--amber); color: #fff; border: none; border-radius: 24px; padding: 8px 18px; font-family: 'Noto Sans JP', sans-serif; font-size: 0.83rem; font-weight: 700; cursor: pointer; transition: background 0.2s, transform 0.1s; white-space: nowrap; }
@@ -47,28 +29,15 @@ header {
 .post-btn:active { transform: scale(0.97); }
 
 /* HERO */
-.hero {
-  background: linear-gradient(135deg, var(--indigo-dark) 0%, #042C53 100%);
-  color: #fff; padding: 2.5rem 1.5rem 2rem; text-align: center; position: relative; overflow: hidden;
-}
-.hero::before {
-  content: ''; position: absolute; inset: 0;
-  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='1.2' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E") repeat;
-}
+.hero { background: linear-gradient(135deg, var(--indigo-dark) 0%, #042C53 100%); color: #fff; padding: 2.5rem 1.5rem 2rem; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Ccircle cx='40' cy='40' r='1.2' fill='rgba(255,255,255,0.05)'/%3E%3C/svg%3E") repeat; }
 .hero h1 { font-family: 'Noto Serif JP', serif; font-size: 1.9rem; font-weight: 700; margin-bottom: 0.4rem; position: relative; letter-spacing: 0.05em; }
 .hero-sub { font-size: 0.9rem; opacity: 0.8; position: relative; margin-bottom: 1.5rem; }
-
-/* SEARCH BAR */
 .search-bar { position: relative; max-width: 460px; margin: 0 auto 1.25rem; }
-.search-bar input {
-  width: 100%; padding: 11px 16px 11px 42px; border-radius: 30px; border: none;
-  font-family: 'Noto Sans JP', sans-serif; font-size: 0.9rem; background: rgba(255,255,255,0.15);
-  color: #fff; outline: none; transition: background 0.2s;
-}
+.search-bar input { width: 100%; padding: 11px 16px 11px 42px; border-radius: 30px; border: none; font-family: 'Noto Sans JP', sans-serif; font-size: 0.9rem; background: rgba(255,255,255,0.15); color: #fff; outline: none; transition: background 0.2s; }
 .search-bar input::placeholder { color: rgba(255,255,255,0.55); }
 .search-bar input:focus { background: rgba(255,255,255,0.25); }
 .search-icon { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 1rem; opacity: 0.7; }
-
 .tag-row { display: flex; flex-wrap: wrap; gap: 7px; justify-content: center; position: relative; }
 .tag-pill { background: rgba(255,255,255,0.13); border: 1px solid rgba(255,255,255,0.28); color: #fff; padding: 5px 13px; border-radius: 20px; font-size: 0.78rem; cursor: pointer; transition: background 0.2s; }
 .tag-pill:hover, .tag-pill.active { background: rgba(255,255,255,0.3); }
@@ -81,11 +50,12 @@ header {
 .stat-label { font-size: 0.68rem; color: var(--text-sub); margin-top: 2px; }
 
 /* TABS */
-.tabs { display: flex; background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 58px; z-index: 90; }
-.tab { flex: 1; padding: 12px 0; text-align: center; font-size: 0.82rem; font-weight: 500; color: var(--text-sub); cursor: pointer; border-bottom: 2.5px solid transparent; transition: all 0.18s; }
+.tabs { display: flex; background: var(--surface); border-bottom: 1px solid var(--border); position: sticky; top: 58px; z-index: 90; overflow-x: auto; }
+.tabs::-webkit-scrollbar { display: none; }
+.tab { flex: 1; min-width: fit-content; padding: 12px 14px; text-align: center; font-size: 0.8rem; font-weight: 500; color: var(--text-sub); cursor: pointer; border-bottom: 2.5px solid transparent; transition: all 0.18s; white-space: nowrap; }
 .tab.active { color: var(--indigo); border-bottom-color: var(--indigo); }
 
-/* REGION FILTER */
+/* REGION BAR */
 .region-bar { background: var(--surface); border-bottom: 1px solid var(--border); padding: 0.75rem 1rem; overflow-x: auto; white-space: nowrap; display: flex; gap: 8px; align-items: center; }
 .region-bar::-webkit-scrollbar { height: 3px; }
 .region-bar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
@@ -100,56 +70,122 @@ header {
 .section-title { font-size: 0.82rem; font-weight: 700; color: var(--text-sub); letter-spacing: 0.07em; text-transform: uppercase; }
 .see-all { font-size: 0.78rem; color: var(--indigo); cursor: pointer; }
 
-/* CARD */
+/* CARDS */
 .card { background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); margin-bottom: 1rem; overflow: hidden; transition: box-shadow 0.2s, transform 0.15s; }
 .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); transform: translateY(-1px); }
 .card-image { width: 100%; height: 180px; display: flex; align-items: center; justify-content: center; font-size: 4.5rem; }
 .card-body { padding: 1rem 1.2rem 0.7rem; }
 .card-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 0.55rem; flex-wrap: wrap; }
 .ctag { font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
-.ctag-food { background: var(--amber-light); color: var(--amber); }
-.ctag-nature { background: var(--green-light); color: var(--green); }
-.ctag-event { background: var(--coral-light); color: var(--coral); }
-.ctag-history { background: var(--purple-light); color: var(--purple); }
-.ctag-spot { background: var(--teal-light); color: var(--teal); }
-.ctag-shop { background: var(--indigo-light); color: var(--indigo); }
-.region-tag { font-size: 0.7rem; color: var(--text-sub); background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 2px 8px; display: flex; align-items: center; gap: 3px; }
+.ctag-food{background:var(--amber-light);color:var(--amber)} .ctag-nature{background:var(--green-light);color:var(--green)} .ctag-event{background:var(--coral-light);color:var(--coral)} .ctag-history{background:var(--purple-light);color:var(--purple)} .ctag-spot{background:var(--teal-light);color:var(--teal)} .ctag-shop{background:var(--indigo-light);color:var(--indigo)}
+.region-tag { font-size: 0.7rem; color: var(--text-sub); background: var(--bg); border: 1px solid var(--border); border-radius: 10px; padding: 2px 8px; }
 .card-title { font-family: 'Noto Serif JP', serif; font-size: 1.05rem; font-weight: 700; margin-bottom: 0.35rem; line-height: 1.5; }
 .card-desc { font-size: 0.85rem; color: var(--text-sub); line-height: 1.7; margin-bottom: 0.6rem; }
 .card-footer { display: flex; align-items: center; justify-content: space-between; padding: 0.55rem 1.2rem; border-top: 1px solid var(--border); background: #F9F9F7; }
 .author { display: flex; align-items: center; gap: 7px; font-size: 0.8rem; color: var(--text-sub); }
 .avatar { width: 26px; height: 26px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; font-weight: 700; color: #fff; flex-shrink: 0; }
-.av-blue { background: var(--indigo); }
-.av-amber { background: var(--amber); }
-.av-coral { background: var(--coral); }
-.av-green { background: var(--green); }
-.av-teal { background: var(--teal); }
-.av-purple { background: var(--purple); }
+.av-blue{background:var(--indigo)} .av-amber{background:var(--amber)} .av-coral{background:var(--coral)} .av-green{background:var(--green)} .av-teal{background:var(--teal)} .av-purple{background:var(--purple)}
 .card-actions { display: flex; gap: 10px; align-items: center; }
 .action-btn { background: none; border: none; cursor: pointer; font-size: 0.8rem; color: var(--text-sub); display: flex; align-items: center; gap: 3px; padding: 4px 8px; border-radius: var(--radius-sm); transition: background 0.15s, color 0.15s; font-family: 'Noto Sans JP', sans-serif; }
 .action-btn:hover { background: var(--indigo-light); color: var(--indigo); }
 .action-btn.liked { color: var(--coral); }
-.action-btn.liked:hover { background: var(--coral-light); }
+
+/* ===== AI SECTION ===== */
+.ai-section { background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; margin-bottom: 1.25rem; }
+.ai-header { background: linear-gradient(135deg, var(--indigo-dark) 0%, #042C53 100%); padding: 1.1rem 1.25rem; display: flex; align-items: center; gap: 12px; color: #fff; }
+.ai-header-icon { width: 42px; height: 42px; background: rgba(255,255,255,0.18); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+.ai-header h3 { font-family: 'Noto Serif JP', serif; font-size: 1rem; font-weight: 700; }
+.ai-header p { font-size: 0.78rem; opacity: 0.82; margin-top: 2px; }
+.ai-body { padding: 1.1rem 1.25rem; }
+.ai-region-row { display: flex; gap: 8px; margin-bottom: 0.85rem; align-items: center; flex-wrap: wrap; }
+.ai-region-label { font-size: 0.78rem; color: var(--text-sub); font-weight: 700; white-space: nowrap; }
+.ai-region-input { flex: 1; min-width: 160px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 8px 12px; font-family: 'Noto Sans JP', sans-serif; font-size: 0.85rem; color: var(--text); background: var(--bg); outline: none; transition: border-color 0.2s; }
+.ai-region-input:focus { border-color: var(--indigo); }
+.ai-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 0.9rem; }
+.ai-chip { background: var(--indigo-light); color: var(--indigo); border: 1px solid rgba(24,95,165,0.2); border-radius: 20px; padding: 5px 13px; font-size: 0.78rem; cursor: pointer; transition: background 0.15s; }
+.ai-chip:hover { background: #B5D4F4; }
+.ai-input-row { display: flex; gap: 8px; }
+.ai-input { flex: 1; border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; font-family: 'Noto Sans JP', sans-serif; font-size: 0.88rem; color: var(--text); background: var(--bg); outline: none; transition: border-color 0.2s; }
+.ai-input:focus { border-color: var(--indigo); }
+.ai-ask-btn { background: var(--indigo); color: #fff; border: none; border-radius: var(--radius-sm); padding: 10px 18px; font-family: 'Noto Sans JP', sans-serif; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: background 0.2s; white-space: nowrap; flex-shrink: 0; }
+.ai-ask-btn:hover { background: var(--indigo-dark); }
+.ai-ask-btn:disabled { background: #B4B2A9; cursor: not-allowed; }
+.ai-result-wrap { margin-top: 1rem; display: none; }
+.ai-result-wrap.visible { display: block; }
+.ai-thinking { display: flex; align-items: center; gap: 10px; color: var(--text-sub); font-size: 0.85rem; padding: 0.75rem 0; }
+.ai-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--indigo); animation: dotbounce 1.2s infinite; }
+.ai-dot:nth-child(2){animation-delay:0.2s} .ai-dot:nth-child(3){animation-delay:0.4s}
+@keyframes dotbounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-7px)} }
+.ai-intro { font-size: 0.87rem; color: var(--text-sub); line-height: 1.8; margin-bottom: 1rem; padding: 0.85rem 1rem; background: var(--indigo-light); border-radius: var(--radius-sm); }
+.ai-spot-cards { display: flex; flex-direction: column; gap: 10px; }
+.ai-spot-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 0.9rem 1rem; display: flex; gap: 12px; align-items: flex-start; transition: box-shadow 0.15s; }
+.ai-spot-card:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.06); }
+.ai-spot-emoji { font-size: 2rem; flex-shrink: 0; line-height: 1.2; }
+.ai-spot-body h4 { font-size: 0.92rem; font-weight: 700; margin-bottom: 3px; }
+.ai-spot-body p { font-size: 0.8rem; color: var(--text-sub); line-height: 1.6; }
+.ai-spot-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; margin-top: 5px; background: var(--indigo-light); color: var(--indigo); }
+.ai-post-btn { margin-top: 6px; background: none; border: 1px solid var(--indigo); color: var(--indigo); border-radius: 14px; padding: 4px 12px; font-size: 0.72rem; cursor: pointer; font-family: 'Noto Sans JP', sans-serif; transition: background 0.15s; }
+.ai-post-btn:hover { background: var(--indigo-light); }
+
+/* ===== SNS SECTION ===== */
+.sns-section { background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); overflow: hidden; margin-bottom: 1.25rem; }
+.sns-header { background: linear-gradient(135deg, #1877F2 0%, #0C447C 100%); padding: 1.1rem 1.25rem; display: flex; align-items: center; gap: 12px; color: #fff; }
+.sns-header-icon { width: 42px; height: 42px; background: rgba(255,255,255,0.18); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+.sns-header h3 { font-family: 'Noto Serif JP', serif; font-size: 1rem; font-weight: 700; }
+.sns-header p { font-size: 0.78rem; opacity: 0.82; margin-top: 2px; }
+.sns-body { padding: 1.1rem 1.25rem; }
+.sns-form-row { display: flex; gap: 8px; margin-bottom: 0.85rem; flex-wrap: wrap; }
+.sns-select { flex: 1; min-width: 200px; border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 9px 12px; font-family: 'Noto Sans JP', sans-serif; font-size: 0.85rem; color: var(--text); background: var(--bg); outline: none; transition: border-color 0.2s; }
+.sns-select:focus { border-color: var(--indigo); }
+.style-pills { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 0.85rem; }
+.style-pill { background: var(--bg); border: 1.5px solid var(--border); border-radius: 20px; padding: 5px 13px; font-size: 0.78rem; cursor: pointer; transition: all 0.15s; }
+.style-pill:hover { border-color: var(--indigo); color: var(--indigo); }
+.style-pill.active { background: var(--indigo-light); border-color: var(--indigo); color: var(--indigo); font-weight: 700; }
+.sns-preview-box { background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm); padding: 1rem; font-size: 0.85rem; line-height: 1.8; color: var(--text); margin-bottom: 0.85rem; min-height: 80px; white-space: pre-wrap; }
+.sns-hashtags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 0.9rem; }
+.hashtag { font-size: 0.75rem; color: var(--indigo); background: var(--indigo-light); border-radius: 12px; padding: 3px 10px; cursor: pointer; transition: background 0.15s; user-select: all; }
+.hashtag:hover { background: #B5D4F4; }
+.sns-action-row { display: flex; gap: 8px; margin-bottom: 1rem; flex-wrap: wrap; }
+.copy-btn { background: var(--indigo); color: #fff; border: none; border-radius: var(--radius-sm); padding: 9px 16px; font-size: 0.82rem; font-weight: 700; cursor: pointer; font-family: 'Noto Sans JP', sans-serif; transition: background 0.2s; }
+.copy-btn:hover { background: var(--indigo-dark); }
+.ai-opt-btn { background: none; border: 1.5px solid var(--indigo); color: var(--indigo); border-radius: var(--radius-sm); padding: 9px 16px; font-size: 0.82rem; font-weight: 700; cursor: pointer; font-family: 'Noto Sans JP', sans-serif; transition: background 0.2s; }
+.ai-opt-btn:hover { background: var(--indigo-light); }
+.sns-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 1rem; }
+.sns-btn { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-radius: var(--radius-sm); border: 1.5px solid var(--border); cursor: pointer; transition: all 0.18s; background: var(--surface); font-family: 'Noto Sans JP', sans-serif; font-size: 0.83rem; font-weight: 700; color: var(--text); }
+.sns-btn:hover { transform: translateY(-1px); box-shadow: 0 3px 12px rgba(0,0,0,0.08); }
+.sns-icon-wrap { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; flex-shrink: 0; color: #fff; font-weight: 900; }
+.sns-btn-x .sns-icon-wrap    { background: #000; }
+.sns-btn-fb .sns-icon-wrap   { background: #1877F2; }
+.sns-btn-ig .sns-icon-wrap   { background: linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); }
+.sns-btn-line .sns-icon-wrap { background: #06C755; }
+.sns-sub { font-size: 0.71rem; color: var(--text-sub); font-weight: 400; display: block; margin-top: 1px; }
+.official-note { background: var(--indigo-light); border-radius: var(--radius-sm); padding: 0.85rem 1rem; font-size: 0.8rem; color: var(--indigo-dark); line-height: 1.7; }
+.official-note strong { color: var(--indigo); }
 
 /* RANKING */
 .rank-card { background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); padding: 1rem 1.2rem; margin-bottom: 0.75rem; display: flex; align-items: center; gap: 1rem; transition: box-shadow 0.2s; }
 .rank-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); }
 .rank-num { font-size: 1.6rem; font-weight: 700; width: 40px; text-align: center; flex-shrink: 0; }
-.rank-1 { color: #B8860B; }
-.rank-2 { color: #708090; }
-.rank-3 { color: #8B4513; }
-.rank-4, .rank-5 { color: var(--text-sub); font-size: 1.2rem; }
+.rank-1{color:#B8860B} .rank-2{color:#708090} .rank-3{color:#8B4513} .rank-4,.rank-5{color:var(--text-sub);font-size:1.2rem}
 .rank-icon { font-size: 2.2rem; flex-shrink: 0; }
 .rank-info { flex: 1; min-width: 0; }
 .rank-title { font-weight: 700; font-size: 0.92rem; margin-bottom: 3px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .rank-region { font-size: 0.75rem; color: var(--text-sub); }
 .rank-likes { font-size: 0.82rem; color: var(--coral); font-weight: 700; }
 
-/* MAP PROMO */
+/* PROMO */
 .promo-card { background: var(--indigo-dark); border-radius: var(--radius); padding: 1.25rem 1.5rem; color: #fff; margin-bottom: 1rem; display: flex; align-items: center; gap: 1rem; }
 .promo-icon { width: 52px; height: 52px; background: rgba(255,255,255,0.15); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.7rem; flex-shrink: 0; }
 .promo-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 3px; }
 .promo-card p { font-size: 0.8rem; opacity: 0.78; }
+
+/* REGION GRID */
+.region-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 10px; }
+.region-area-card { background: var(--surface); border-radius: var(--radius); border: 1px solid var(--border); padding: 1.2rem; text-align: center; cursor: pointer; transition: box-shadow 0.2s, transform 0.15s; }
+.region-area-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.07); transform: translateY(-1px); }
+.region-area-emoji { font-size: 2.2rem; margin-bottom: 7px; }
+.region-area-name { font-weight: 700; font-size: 0.92rem; margin-bottom: 4px; }
+.region-area-count { font-size: 0.72rem; color: var(--text-sub); }
 
 /* MODAL */
 .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 200; align-items: center; justify-content: center; padding: 1rem; }
@@ -160,12 +196,8 @@ header {
 .close-btn:hover { background: var(--indigo-light); }
 .form-group { margin-bottom: 1rem; }
 .form-label { display: block; font-size: 0.8rem; font-weight: 700; color: var(--text-sub); margin-bottom: 6px; }
-.form-input, .form-textarea, .form-select {
-  width: 100%; border: 1.5px solid var(--border); border-radius: var(--radius-sm);
-  padding: 10px 12px; font-family: 'Noto Sans JP', sans-serif; font-size: 0.88rem;
-  color: var(--text); background: var(--bg); transition: border-color 0.2s; outline: none;
-}
-.form-input:focus, .form-textarea:focus, .form-select:focus { border-color: var(--indigo); }
+.form-input, .form-textarea { width: 100%; border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 10px 12px; font-family: 'Noto Sans JP', sans-serif; font-size: 0.88rem; color: var(--text); background: var(--bg); transition: border-color 0.2s; outline: none; }
+.form-input:focus, .form-textarea:focus { border-color: var(--indigo); }
 .form-textarea { resize: vertical; min-height: 95px; }
 .category-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; }
 .cat-option { border: 1.5px solid var(--border); border-radius: var(--radius-sm); padding: 10px 4px; text-align: center; cursor: pointer; transition: all 0.15s; font-size: 0.78rem; }
@@ -174,50 +206,115 @@ header {
 .cat-option.selected { border-color: var(--indigo); background: var(--indigo-light); color: var(--indigo); font-weight: 700; }
 .upload-zone { border: 2px dashed var(--border); border-radius: var(--radius-sm); padding: 1.75rem; text-align: center; cursor: pointer; color: var(--text-sub); font-size: 0.83rem; transition: all 0.15s; }
 .upload-zone:hover { border-color: var(--indigo); background: var(--indigo-light); }
-.upload-zone .upload-icon { font-size: 1.8rem; display: block; margin-bottom: 7px; }
+.upload-icon { font-size: 1.8rem; display: block; margin-bottom: 7px; }
 .submit-btn { width: 100%; background: var(--indigo); color: #fff; border: none; border-radius: var(--radius-sm); padding: 13px; font-family: 'Noto Serif JP', serif; font-size: 0.98rem; font-weight: 700; cursor: pointer; transition: background 0.2s; margin-top: 0.4rem; }
 .submit-btn:hover { background: var(--indigo-dark); }
 
 /* TOAST */
-.toast { position: fixed; bottom: 2rem; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--indigo-dark); color: #fff; padding: 12px 24px; border-radius: 30px; font-size: 0.88rem; font-weight: 700; z-index: 300; transition: transform 0.3s; pointer-events: none; white-space: nowrap; }
+.toast { position: fixed; bottom: 5rem; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--indigo-dark); color: #fff; padding: 12px 24px; border-radius: 30px; font-size: 0.88rem; font-weight: 700; z-index: 300; transition: transform 0.3s; pointer-events: none; white-space: nowrap; }
 .toast.show { transform: translateX(-50%) translateY(0); }
 
 /* BOTTOM NAV */
 .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: var(--surface); border-top: 1px solid var(--border); display: flex; z-index: 100; }
-.nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 9px 0 7px; cursor: pointer; font-size: 0.66rem; color: var(--text-sub); border: none; background: none; font-family: 'Noto Sans JP', sans-serif; transition: color 0.15s; gap: 3px; }
+.nav-item { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 9px 0 7px; cursor: pointer; font-size: 0.65rem; color: var(--text-sub); border: none; background: none; font-family: 'Noto Sans JP', sans-serif; transition: color 0.15s; gap: 3px; }
 .nav-item.active { color: var(--indigo); }
 .nav-icon { font-size: 1.25rem; }
-body { padding-bottom: 68px; }
-
-/* PANEL */
 .panel { display: none; }
 .panel.active { display: block; }
+
+/* ===== ログイン・ユーザー ===== */
+.auth-bar { display:flex; align-items:center; gap:10px; }
+.auth-btn { background:rgba(255,255,255,0.18); border:1px solid rgba(255,255,255,0.35); color:#fff; border-radius:20px; padding:6px 16px; font-size:0.78rem; font-weight:700; cursor:pointer; font-family:'Noto Sans JP',sans-serif; transition:background 0.2s; white-space:nowrap; }
+.auth-btn:hover { background:rgba(255,255,255,0.28); }
+.user-avatar { width:32px; height:32px; border-radius:50%; background:var(--amber); color:#fff; display:flex; align-items:center; justify-content:center; font-size:0.75rem; font-weight:700; cursor:pointer; flex-shrink:0; }
+.user-menu { position:absolute; top:52px; right:12px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:8px 0; z-index:200; min-width:160px; box-shadow:0 4px 20px rgba(0,0,0,0.12); }
+.user-menu-item { padding:10px 18px; font-size:0.85rem; cursor:pointer; color:var(--text); transition:background 0.15s; }
+.user-menu-item:hover { background:var(--indigo-light); color:var(--indigo); }
+.user-menu-item.danger { color:#c0392b; }
+
+/* ===== 認証モーダル ===== */
+.auth-modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.55); z-index:300; align-items:center; justify-content:center; padding:1rem; }
+.auth-modal-overlay.open { display:flex; }
+.auth-modal { background:var(--surface); border-radius:var(--radius); width:100%; max-width:420px; padding:2rem 1.75rem; }
+.auth-modal h2 { font-family:'Noto Serif JP',serif; font-size:1.2rem; font-weight:700; margin-bottom:0.4rem; }
+.auth-modal p { font-size:0.82rem; color:var(--text-sub); margin-bottom:1.5rem; }
+.auth-tabs { display:flex; gap:0; margin-bottom:1.5rem; border-bottom:2px solid var(--border); }
+.auth-tab { flex:1; padding:10px; text-align:center; font-size:0.85rem; font-weight:700; cursor:pointer; color:var(--text-sub); border-bottom:2px solid transparent; margin-bottom:-2px; transition:all 0.15s; }
+.auth-tab.active { color:var(--indigo); border-bottom-color:var(--indigo); }
+.auth-form-group { margin-bottom:1rem; }
+.auth-label { display:block; font-size:0.78rem; font-weight:700; color:var(--text-sub); margin-bottom:5px; }
+.auth-input { width:100%; border:1.5px solid var(--border); border-radius:var(--radius-sm); padding:10px 12px; font-family:'Noto Sans JP',sans-serif; font-size:0.88rem; color:var(--text); background:var(--bg); outline:none; transition:border-color 0.2s; }
+.auth-input:focus { border-color:var(--indigo); }
+.auth-submit { width:100%; background:var(--indigo); color:#fff; border:none; border-radius:var(--radius-sm); padding:12px; font-family:'Noto Serif JP',serif; font-size:0.95rem; font-weight:700; cursor:pointer; margin-top:0.5rem; transition:background 0.2s; }
+.auth-submit:hover { background:var(--indigo-dark); }
+.auth-submit:disabled { background:#B4B2A9; cursor:not-allowed; }
+.auth-error { font-size:0.8rem; color:#c0392b; margin-top:0.5rem; min-height:1.2em; }
+
+/* ===== 地図パネル ===== */
+#map { width:100%; height:420px; border-radius:var(--radius); overflow:hidden; border:1px solid var(--border); margin-bottom:1rem; }
+.map-filter-bar { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:0.85rem; align-items:center; }
+.map-filter-label { font-size:0.75rem; font-weight:700; color:var(--text-sub); }
+.map-spot-list { display:flex; flex-direction:column; gap:8px; max-height:280px; overflow-y:auto; }
+.map-spot-item { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-sm); padding:0.75rem 1rem; display:flex; align-items:center; gap:10px; cursor:pointer; transition:box-shadow 0.15s; }
+.map-spot-item:hover { box-shadow:0 2px 10px rgba(0,0,0,0.07); }
+.map-spot-emoji { font-size:1.5rem; flex-shrink:0; }
+.map-spot-info { flex:1; min-width:0; }
+.map-spot-title { font-weight:700; font-size:0.88rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.map-spot-region { font-size:0.73rem; color:var(--text-sub); }
+
+/* ===== お気に入り ===== */
+.fav-btn { background:none; border:none; cursor:pointer; font-size:1rem; padding:4px 8px; border-radius:var(--radius-sm); transition:background 0.15s, transform 0.1s; color:var(--text-sub); font-family:'Noto Sans JP',sans-serif; display:flex; align-items:center; gap:3px; }
+.fav-btn:hover { background:var(--amber-light); }
+.fav-btn.saved { color:var(--amber); }
+.fav-btn:active { transform:scale(0.92); }
+
+/* ===== スマホ最適化 ===== */
+@media (max-width: 480px) {
+  .hero h1 { font-size:1.45rem; }
+  .hero-sub { font-size:0.8rem; }
+  .card-image { height:140px; font-size:3.5rem; }
+  .card-title { font-size:0.95rem; }
+  .stats-bar { grid-template-columns:repeat(2,1fr); }
+  .stat:nth-child(3) { border-bottom:1px solid var(--border); }
+  .sns-grid { grid-template-columns:1fr; }
+  .modal { padding:1.25rem; }
+  .category-grid { grid-template-columns:repeat(3,1fr); }
+  .auth-modal { padding:1.5rem 1.25rem; }
+  #map { height:320px; }
+  .container { padding:1rem 0.75rem; }
+  .tab { padding:10px 10px; font-size:0.73rem; }
+  .rank-card { padding:0.75rem 0.9rem; }
+}
+@media (max-width: 360px) {
+  .hero h1 { font-size:1.25rem; }
+  .stat-num { font-size:1.1rem; }
+}
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">
-    <div class="logo-badge">🗾</div>
-    じもとじまん
+  <div class="logo"><div class="logo-badge">🗾</div>じもとじまん</div>
+  <div class="auth-bar" id="auth-bar">
+    <button class="auth-btn" onclick="openAuthModal('login')">ログイン</button>
+    <button class="post-btn" onclick="openModal()">＋ 投稿する</button>
   </div>
-  <button class="post-btn" onclick="openModal()">＋ 投稿する</button>
 </header>
 
 <div class="hero">
   <h1>あなたの地元の魅力を、日本中へ</h1>
-  <p class="hero-sub">グルメ・自然・イベント・歴史…地元じまんをみんなでシェアしよう</p>
+  <p class="hero-sub">グルメ・自然・イベント・歴史… 地元じまんをみんなでシェアしよう</p>
   <div class="search-bar">
     <span class="search-icon">🔍</span>
-    <input type="text" placeholder="地名・キーワードで検索…" id="search-input" oninput="doSearch()">
+    <input type="text" placeholder="地名・キーワードで検索…" id="search-input" oninput="applyFilters()">
   </div>
   <div class="tag-row">
-    <span class="tag-pill active" onclick="filterCat('all', this)">すべて</span>
-    <span class="tag-pill" onclick="filterCat('food', this)">🍜 グルメ</span>
-    <span class="tag-pill" onclick="filterCat('nature', this)">🌿 自然</span>
-    <span class="tag-pill" onclick="filterCat('event', this)">🎉 イベント</span>
-    <span class="tag-pill" onclick="filterCat('history', this)">🏯 歴史</span>
-    <span class="tag-pill" onclick="filterCat('spot', this)">📍 スポット</span>
+    <span class="tag-pill active" onclick="filterCat('all',this)">すべて</span>
+    <span class="tag-pill" onclick="filterCat('food',this)">🍜 グルメ</span>
+    <span class="tag-pill" onclick="filterCat('nature',this)">🌿 自然</span>
+    <span class="tag-pill" onclick="filterCat('event',this)">🎉 イベント</span>
+    <span class="tag-pill" onclick="filterCat('history',this)">🏯 歴史</span>
+    <span class="tag-pill" onclick="filterCat('spot',this)">📍 スポット</span>
   </div>
 </div>
 
@@ -229,435 +326,820 @@ body { padding-bottom: 68px; }
 </div>
 
 <div class="tabs">
-  <div class="tab active" onclick="switchTab('feed', this)">新着</div>
-  <div class="tab" onclick="switchTab('rank', this)">ランキング</div>
-  <div class="tab" onclick="switchTab('region', this)">地域から探す</div>
+  <div class="tab active"  onclick="switchTab('feed',this)">新着</div>
+  <div class="tab"         onclick="switchTab('ai',this)">🤖 AIおすすめ</div>
+  <div class="tab"         onclick="switchTab('sns',this)">📣 SNS発信</div>
+  <div class="tab"         onclick="switchTab('map',this)">🗺️ 地図</div>
+  <div class="tab"         onclick="switchTab('rank',this)">ランキング</div>
+  <div class="tab"         onclick="switchTab('fav',this)">⭐ お気に入り</div>
+  <div class="tab"         onclick="switchTab('region',this)">地域から探す</div>
 </div>
 
 <div class="region-bar">
   <span class="region-label">地域：</span>
-  <span class="region-chip active" onclick="filterRegion('all', this)">すべて</span>
-  <span class="region-chip" onclick="filterRegion('hokkaido', this)">北海道</span>
-  <span class="region-chip" onclick="filterRegion('tohoku', this)">東北</span>
-  <span class="region-chip" onclick="filterRegion('kanto', this)">関東</span>
-  <span class="region-chip" onclick="filterRegion('chubu', this)">中部</span>
-  <span class="region-chip" onclick="filterRegion('kinki', this)">近畿</span>
-  <span class="region-chip" onclick="filterRegion('chugoku', this)">中国</span>
-  <span class="region-chip" onclick="filterRegion('shikoku', this)">四国</span>
-  <span class="region-chip" onclick="filterRegion('kyushu', this)">九州・沖縄</span>
+  <span class="region-chip active" onclick="filterRegion('all',this)">すべて</span>
+  <span class="region-chip" onclick="filterRegion('hokkaido',this)">北海道</span>
+  <span class="region-chip" onclick="filterRegion('tohoku',this)">東北</span>
+  <span class="region-chip" onclick="filterRegion('kanto',this)">関東</span>
+  <span class="region-chip" onclick="filterRegion('chubu',this)">中部</span>
+  <span class="region-chip" onclick="filterRegion('kinki',this)">近畿</span>
+  <span class="region-chip" onclick="filterRegion('chugoku',this)">中国</span>
+  <span class="region-chip" onclick="filterRegion('shikoku',this)">四国</span>
+  <span class="region-chip" onclick="filterRegion('kyushu',this)">九州・沖縄</span>
 </div>
 
 <div class="container">
 
-  <!-- FEED PANEL -->
+  <!-- ===== FEED ===== -->
   <div id="panel-feed" class="panel active">
     <div class="section-head">
       <span class="section-title">新着投稿</span>
       <span class="see-all">もっと見る →</span>
     </div>
-    <div id="posts-container">
-
-      <div class="card" data-cat="food" data-region="kinki">
-        <div class="card-image" style="background:#FAEEDA;">🍜</div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="ctag ctag-food">グルメ</span>
-            <span class="region-tag">📍 大阪府八尾市</span>
-          </div>
-          <div class="card-title">八尾名物「かしわ天うどん」が絶品すぎた！</div>
-          <div class="card-desc">JR八尾駅すぐの老舗うどん屋さん。ふわっとした鶏天とだしの香りが最高！地元の人たちに長く愛されているお店です🍜</div>
-        </div>
-        <div class="card-footer">
-          <div class="author"><div class="avatar av-amber">や</div>やおすき太郎</div>
-          <div class="card-actions">
-            <button class="action-btn" onclick="toggleLike(this)">♡ <span>42</span></button>
-            <button class="action-btn">💬 8</button>
-            <button class="action-btn">🔗</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" data-cat="nature" data-region="hokkaido">
-        <div class="card-image" style="background:#EAF3DE;">🌸</div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="ctag ctag-nature">自然</span>
-            <span class="region-tag">📍 北海道富良野市</span>
-          </div>
-          <div class="card-title">富良野のラベンダー畑、息をのむ美しさ</div>
-          <div class="card-desc">一面に広がる紫のラベンダー。7月が見ごろで、丘の上から見下ろす景色は本当に絶景。遠くに大雪山系が見えてまるで絵画のようでした🌿</div>
-        </div>
-        <div class="card-footer">
-          <div class="author"><div class="avatar av-green">ふ</div>富良野LOVE</div>
-          <div class="card-actions">
-            <button class="action-btn liked" onclick="toggleLike(this)">♥ <span>210</span></button>
-            <button class="action-btn">💬 31</button>
-            <button class="action-btn">🔗</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" data-cat="food" data-region="kyushu">
-        <div class="card-image" style="background:#FAEEDA;">🍢</div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="ctag ctag-food">グルメ</span>
-            <span class="region-tag">📍 福岡県福岡市</span>
-          </div>
-          <div class="card-title">屋台文化の本場・中洲で食べた豚骨ラーメン</div>
-          <div class="card-desc">夜の中洲、屋台のカウンターで食べる一杯は格別。濃厚なのにするすると入ってくる不思議なスープ。地元の人たちとの会話も旅の醍醐味でした🍜</div>
-        </div>
-        <div class="card-footer">
-          <div class="author"><div class="avatar av-coral">は</div>はかたっこ</div>
-          <div class="card-actions">
-            <button class="action-btn" onclick="toggleLike(this)">♡ <span>98</span></button>
-            <button class="action-btn">💬 12</button>
-            <button class="action-btn">🔗</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" data-cat="history" data-region="chubu">
-        <div class="card-image" style="background:#EDE8F5;">🏯</div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="ctag ctag-history">歴史</span>
-            <span class="region-tag">📍 岐阜県白川村</span>
-          </div>
-          <div class="card-title">合掌造りの里・白川郷、冬のライトアップが幻想的</div>
-          <div class="card-desc">雪に包まれた合掌造りがライトアップされる冬の風景は世界遺産ならではの圧巻の美しさ。静寂の中に灯るあたたかな光に時間を忘れました。</div>
-        </div>
-        <div class="card-footer">
-          <div class="author"><div class="avatar av-purple">し</div>しらかわゆき</div>
-          <div class="card-actions">
-            <button class="action-btn liked" onclick="toggleLike(this)">♥ <span>183</span></button>
-            <button class="action-btn">💬 27</button>
-            <button class="action-btn">🔗</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" data-cat="event" data-region="tohoku">
-        <div class="card-image" style="background:#FAECE7;">🎉</div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="ctag ctag-event">イベント</span>
-            <span class="region-tag">📍 青森県青森市</span>
-          </div>
-          <div class="card-title">青森ねぶた祭、熱気と迫力に圧倒された！</div>
-          <div class="card-desc">巨大な山車と跳人たちの掛け声、太鼓の音が体に響く。日本の夏祭りの原点ともいえる圧倒的スケール。一生に一度は絶対見てほしいお祭り🎊</div>
-        </div>
-        <div class="card-footer">
-          <div class="author"><div class="avatar av-blue">ね</div>ねぶた大好き</div>
-          <div class="card-actions">
-            <button class="action-btn" onclick="toggleLike(this)">♡ <span>156</span></button>
-            <button class="action-btn">💬 19</button>
-            <button class="action-btn">🔗</button>
-          </div>
-        </div>
-      </div>
-
-      <div class="card" data-cat="spot" data-region="kinki">
-        <div class="card-image" style="background:#E1F5EE;">⛩️</div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="ctag ctag-spot">スポット</span>
-            <span class="region-tag">📍 京都府京都市</span>
-          </div>
-          <div class="card-title">早朝の伏見稲荷、人のいない千本鳥居へ</div>
-          <div class="card-desc">観光客が来る前の朝6時に訪問。朝靄の中に続く朱色の鳥居は神秘的。地元の人たちが散歩や参拝をしていてこそ感じられる、本当の京都がありました。</div>
-        </div>
-        <div class="card-footer">
-          <div class="author"><div class="avatar av-teal">き</div>京都朝活</div>
-          <div class="card-actions">
-            <button class="action-btn" onclick="toggleLike(this)">♡ <span>74</span></button>
-            <button class="action-btn">💬 9</button>
-            <button class="action-btn">🔗</button>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /posts-container -->
-
+    <div id="posts-container"></div>
     <div class="promo-card">
       <div class="promo-icon">🗺️</div>
-      <div>
-        <h3>地図からスポットを探す</h3>
-        <p>全国47都道府県の投稿スポットを地図上で確認できます</p>
+      <div><h3>地図からスポットを探す</h3><p>全国47都道府県の投稿スポットを地図上で確認できます</p></div>
+    </div>
+  </div>
+
+  <!-- ===== AI おすすめ ===== -->
+  <div id="panel-ai" class="panel">
+    <div class="ai-section">
+      <div class="ai-header">
+        <div class="ai-header-icon">🤖</div>
+        <div>
+          <h3>AIおすすめスポット提案</h3>
+          <p>地域と気分を入力すると、AIがぴったりの地元スポットをご提案します</p>
+        </div>
+      </div>
+      <div class="ai-body">
+        <div class="ai-region-row">
+          <span class="ai-region-label">地域：</span>
+          <input type="text" class="ai-region-input" id="ai-region" placeholder="例：大阪府八尾市、北海道富良野市、京都…" value="">
+        </div>
+        <div class="ai-chips" id="ai-chips">
+          <span class="ai-chip" onclick="setQ(this)">子どもと楽しめる場所</span>
+          <span class="ai-chip" onclick="setQ(this)">歴史・文化を感じたい</span>
+          <span class="ai-chip" onclick="setQ(this)">絶品グルメを教えて</span>
+          <span class="ai-chip" onclick="setQ(this)">自然の中でリフレッシュ</span>
+          <span class="ai-chip" onclick="setQ(this)">週末の散歩コース</span>
+          <span class="ai-chip" onclick="setQ(this)">地元ならではの体験</span>
+          <span class="ai-chip" onclick="setQ(this)">穴場スポットが知りたい</span>
+          <span class="ai-chip" onclick="setQ(this)">カップルにおすすめ</span>
+        </div>
+        <div class="ai-input-row">
+          <input type="text" class="ai-input" id="ai-q" placeholder="どんなスポットを探していますか？">
+          <button class="ai-ask-btn" id="ai-btn" onclick="askAI()">提案する ✨</button>
+        </div>
+        <div class="ai-result-wrap" id="ai-result-wrap">
+          <div class="ai-thinking" id="ai-thinking" style="display:none">
+            <div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div>
+            <span>AIが地元スポットを探しています…</span>
+          </div>
+          <div class="ai-intro" id="ai-intro"></div>
+          <div class="ai-spot-cards" id="ai-spot-cards"></div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- RANKING PANEL -->
+  <!-- ===== SNS 発信 ===== -->
+  <div id="panel-sns" class="panel">
+    <div class="sns-section">
+      <div class="sns-header">
+        <div class="sns-header-icon">📣</div>
+        <div>
+          <h3>地元じまんをSNSで発信しよう</h3>
+          <p>投稿文・ハッシュタグをAIが自動生成、各SNSに最適化してシェア</p>
+        </div>
+      </div>
+      <div class="sns-body">
+        <div class="form-group">
+          <label class="form-label">発信したい投稿を選ぶ</label>
+          <select class="sns-select" id="sns-select" onchange="buildPreview()">
+            <option value="">— 投稿を選択してください —</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">投稿スタイル</label>
+          <div class="style-pills">
+            <span class="style-pill active" onclick="setStyle('casual',this)">😊 カジュアル</span>
+            <span class="style-pill" onclick="setStyle('formal',this)">🏛️ 公式風</span>
+            <span class="style-pill" onclick="setStyle('travel',this)">✈️ 旅行ブログ風</span>
+            <span class="style-pill" onclick="setStyle('short',this)">⚡ 短文（X向け）</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">投稿プレビュー</label>
+          <div class="sns-preview-box" id="sns-preview">投稿を選択すると、ここにプレビューが表示されます。</div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">おすすめハッシュタグ（タップでコピー）</label>
+          <div class="sns-hashtags" id="sns-hashtags">
+            <span class="hashtag">#じもとじまん</span>
+            <span class="hashtag">#地元の魅力</span>
+            <span class="hashtag">#日本の絶景</span>
+            <span class="hashtag">#旅行好きな人と繋がりたい</span>
+          </div>
+        </div>
+        <div class="sns-action-row">
+          <button class="copy-btn" onclick="copyPreview()">📋 テキストをコピー</button>
+          <button class="ai-opt-btn" id="ai-opt-btn" onclick="aiOptimize()">🤖 AIで最適化する</button>
+        </div>
+        <div class="form-group">
+          <label class="form-label">各SNSでシェアする</label>
+          <div class="sns-grid">
+            <button class="sns-btn sns-btn-x" onclick="shareToSNS('x')">
+              <div class="sns-icon-wrap">𝕏</div>
+              <div><div>X (Twitter)</div><span class="sns-sub">最大280文字</span></div>
+            </button>
+            <button class="sns-btn sns-btn-fb" onclick="shareToSNS('fb')">
+              <div class="sns-icon-wrap" style="font-weight:900;font-size:1.2rem;">f</div>
+              <div><div>Facebook</div><span class="sns-sub">コミュニティに投稿</span></div>
+            </button>
+            <button class="sns-btn sns-btn-ig" onclick="shareToSNS('ig')">
+              <div class="sns-icon-wrap">📷</div>
+              <div><div>Instagram</div><span class="sns-sub">ハッシュタグ付き</span></div>
+            </button>
+            <button class="sns-btn sns-btn-line" onclick="shareToSNS('line')">
+              <div class="sns-icon-wrap" style="font-weight:900;font-size:1.1rem;">L</div>
+              <div><div>LINE</div><span class="sns-sub">友達・グループに共有</span></div>
+            </button>
+          </div>
+        </div>
+        <div class="official-note">
+          <strong>💡 地元自治体への連携</strong><br>
+          投稿に <strong>#じもとじまん</strong> をつけると、各地の自治体公式SNSでリポストされる可能性があります。あなたの投稿が観光PRに役立てられるかも！
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== RANKING ===== -->
   <div id="panel-rank" class="panel">
-    <div class="section-head" style="margin-bottom:1rem;">
-      <span class="section-title">今週のじまんランキング</span>
-    </div>
-
-    <div class="rank-card">
-      <div class="rank-num rank-1">🥇</div>
-      <div class="rank-icon">🌸</div>
-      <div class="rank-info">
-        <div class="rank-title">富良野のラベンダー畑、息をのむ美しさ</div>
-        <div class="rank-region">📍 北海道富良野市・自然</div>
-      </div>
-      <div class="rank-likes">♥ 210</div>
-    </div>
-    <div class="rank-card">
-      <div class="rank-num rank-2">🥈</div>
-      <div class="rank-icon">🏯</div>
-      <div class="rank-info">
-        <div class="rank-title">合掌造りの里・白川郷、冬のライトアップが幻想的</div>
-        <div class="rank-region">📍 岐阜県白川村・歴史</div>
-      </div>
-      <div class="rank-likes">♥ 183</div>
-    </div>
-    <div class="rank-card">
-      <div class="rank-num rank-3">🥉</div>
-      <div class="rank-icon">🎉</div>
-      <div class="rank-info">
-        <div class="rank-title">青森ねぶた祭、熱気と迫力に圧倒された！</div>
-        <div class="rank-region">📍 青森県青森市・イベント</div>
-      </div>
-      <div class="rank-likes">♥ 156</div>
-    </div>
-    <div class="rank-card">
-      <div class="rank-num rank-4">4</div>
-      <div class="rank-icon">🍢</div>
-      <div class="rank-info">
-        <div class="rank-title">屋台文化の本場・中洲で食べた豚骨ラーメン</div>
-        <div class="rank-region">📍 福岡県福岡市・グルメ</div>
-      </div>
-      <div class="rank-likes">♥ 98</div>
-    </div>
-    <div class="rank-card">
-      <div class="rank-num rank-5">5</div>
-      <div class="rank-icon">⛩️</div>
-      <div class="rank-info">
-        <div class="rank-title">早朝の伏見稲荷、人のいない千本鳥居へ</div>
-        <div class="rank-region">📍 京都府京都市・スポット</div>
-      </div>
-      <div class="rank-likes">♥ 74</div>
-    </div>
+    <div class="section-head"><span class="section-title">今週のじまんランキング</span></div>
+    <div id="rank-list"></div>
   </div>
 
-  <!-- REGION PANEL -->
+  <!-- ===== REGION ===== -->
   <div id="panel-region" class="panel">
-    <div class="section-head">
-      <span class="section-title">地域から探す</span>
-    </div>
-    <div id="region-grid" style="display:grid; grid-template-columns: repeat(2, 1fr); gap: 10px;">
-    </div>
+    <div class="section-head"><span class="section-title">地域から探す</span></div>
+    <div class="region-grid" id="region-grid"></div>
   </div>
 
-</div><!-- /container -->
+  <!-- 地図パネル -->
+  <div id="panel-map" class="panel">
+    <div class="section-head"><span class="section-title">🗺️ 地図でスポットを探す</span></div>
+    <div class="map-filter-bar">
+      <span class="map-filter-label">絞り込み：</span>
+      <span class="tag-pill active" onclick="filterMapCat('all',this)">すべて</span>
+      <span class="tag-pill" onclick="filterMapCat('food',this)">🍜 グルメ</span>
+      <span class="tag-pill" onclick="filterMapCat('nature',this)">🌿 自然</span>
+      <span class="tag-pill" onclick="filterMapCat('event',this)">🎉 イベント</span>
+      <span class="tag-pill" onclick="filterMapCat('history',this)">🏯 歴史</span>
+      <span class="tag-pill" onclick="filterMapCat('spot',this)">📍 スポット</span>
+    </div>
+    <div id="map"></div>
+    <div class="section-head" style="margin-top:1rem;"><span class="section-title">スポット一覧</span></div>
+    <div class="map-spot-list" id="map-spot-list"></div>
+  </div>
 
-<!-- BOTTOM NAV -->
+  <!-- お気に入りパネル -->
+  <div id="panel-fav" class="panel">
+    <div class="section-head"><span class="section-title">⭐ お気に入り</span></div>
+    <div id="fav-container"></div>
+  </div>
+
+</div>
+
 <nav class="bottom-nav">
-  <button class="nav-item active" onclick="switchTab('feed', null); setNavActive(this)">
-    <span class="nav-icon">🏠</span>ホーム
-  </button>
-  <button class="nav-item" onclick="switchTab('rank', null); setNavActive(this)">
-    <span class="nav-icon">🏆</span>ランキング
-  </button>
-  <button class="nav-item" onclick="openModal()">
-    <span class="nav-icon">➕</span>投稿
-  </button>
-  <button class="nav-item" onclick="switchTab('region', null); setNavActive(this)">
-    <span class="nav-icon">🗾</span>地域
-  </button>
-  <button class="nav-item">
-    <span class="nav-icon">👤</span>マイページ
-  </button>
+  <button class="nav-item active" onclick="switchTab('feed',null);setNav(this)"><span class="nav-icon">🏠</span>ホーム</button>
+  <button class="nav-item" onclick="switchTab('map',null);setNav(this)"><span class="nav-icon">🗺️</span>地図</button>
+  <button class="nav-item" onclick="openModal()"><span class="nav-icon">➕</span>投稿</button>
+  <button class="nav-item" onclick="switchTab('fav',null);setNav(this)"><span class="nav-icon">⭐</span>お気に入り</button>
+  <button class="nav-item" onclick="switchTab('rank',null);setNav(this)"><span class="nav-icon">🏆</span>ランキング</button>
 </nav>
 
-<!-- POST MODAL -->
+<!-- MODAL -->
 <div class="modal-overlay" id="modal">
   <div class="modal">
-    <div class="modal-title">
-      地元じまんを投稿する
-      <button class="close-btn" onclick="closeModal()">✕</button>
-    </div>
-
+    <div class="modal-title">地元じまんを投稿する <button class="close-btn" onclick="closeModal()">✕</button></div>
     <div class="form-group">
       <label class="form-label">地域を入力</label>
       <input type="text" class="form-input" id="post-region" placeholder="例：大阪府八尾市、北海道富良野市…">
     </div>
-
     <div class="form-group">
       <label class="form-label">カテゴリーを選択</label>
       <div class="category-grid">
-        <div class="cat-option" onclick="selectCat(this)" data-cat="food"><span class="cat-emoji">🍜</span>グルメ</div>
-        <div class="cat-option" onclick="selectCat(this)" data-cat="nature"><span class="cat-emoji">🌿</span>自然</div>
-        <div class="cat-option" onclick="selectCat(this)" data-cat="event"><span class="cat-emoji">🎉</span>イベント</div>
-        <div class="cat-option" onclick="selectCat(this)" data-cat="history"><span class="cat-emoji">🏯</span>歴史</div>
-        <div class="cat-option" onclick="selectCat(this)" data-cat="spot"><span class="cat-emoji">📍</span>スポット</div>
-        <div class="cat-option" onclick="selectCat(this)" data-cat="shop"><span class="cat-emoji">🛒</span>お買い物</div>
+        <div class="cat-option" onclick="selCat(this)" data-cat="food"><span class="cat-emoji">🍜</span>グルメ</div>
+        <div class="cat-option" onclick="selCat(this)" data-cat="nature"><span class="cat-emoji">🌿</span>自然</div>
+        <div class="cat-option" onclick="selCat(this)" data-cat="event"><span class="cat-emoji">🎉</span>イベント</div>
+        <div class="cat-option" onclick="selCat(this)" data-cat="history"><span class="cat-emoji">🏯</span>歴史</div>
+        <div class="cat-option" onclick="selCat(this)" data-cat="spot"><span class="cat-emoji">📍</span>スポット</div>
+        <div class="cat-option" onclick="selCat(this)" data-cat="shop"><span class="cat-emoji">🛒</span>お買い物</div>
       </div>
     </div>
-
     <div class="form-group">
       <label class="form-label">タイトル</label>
       <input type="text" class="form-input" id="post-title" placeholder="地元じまんのタイトルを入力">
     </div>
-
     <div class="form-group">
       <label class="form-label">内容</label>
       <textarea class="form-textarea" id="post-body" placeholder="地元のここが好き！という気持ちを書いてみよう😊"></textarea>
     </div>
-
     <div class="form-group">
       <label class="form-label">写真を追加</label>
-      <div class="upload-zone">
-        <span class="upload-icon">📸</span>
-        タップして写真を選択<br>
-        <span style="font-size:0.73rem; opacity:0.65;">JPG / PNG、最大5MB</span>
-      </div>
+      <div class="upload-zone"><span class="upload-icon">📸</span>タップして写真を選択<br><span style="font-size:0.73rem;opacity:0.65;">JPG / PNG、最大5MB</span></div>
     </div>
-
     <button class="submit-btn" onclick="submitPost()">🗾 じもとじまんを投稿する</button>
   </div>
 </div>
 
-<div class="toast" id="toast">投稿を公開しました！ありがとうございます🗾</div>
+<div class="toast" id="toast"></div>
+
+<!-- 認証モーダル -->
+<div class="auth-modal-overlay" id="auth-modal">
+  <div class="auth-modal">
+    <div class="modal-title" style="margin-bottom:0.5rem;">
+      <span>🗾 じもとじまん</span>
+      <button class="close-btn" onclick="closeAuthModal()">✕</button>
+    </div>
+    <div class="auth-tabs">
+      <div class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">ログイン</div>
+      <div class="auth-tab" id="tab-signup" onclick="switchAuthTab('signup')">新規登録</div>
+    </div>
+    <div id="auth-form-login">
+      <div class="auth-form-group">
+        <label class="auth-label">メールアドレス</label>
+        <input type="email" class="auth-input" id="login-email" placeholder="example@mail.com">
+      </div>
+      <div class="auth-form-group">
+        <label class="auth-label">パスワード</label>
+        <input type="password" class="auth-input" id="login-password" placeholder="パスワードを入力">
+      </div>
+      <div class="auth-error" id="login-error"></div>
+      <button class="auth-submit" id="login-btn" onclick="doLogin()">ログインする</button>
+    </div>
+    <div id="auth-form-signup" style="display:none">
+      <div class="auth-form-group">
+        <label class="auth-label">ニックネーム</label>
+        <input type="text" class="auth-input" id="signup-name" placeholder="例：じもとさん">
+      </div>
+      <div class="auth-form-group">
+        <label class="auth-label">メールアドレス</label>
+        <input type="email" class="auth-input" id="signup-email" placeholder="example@mail.com">
+      </div>
+      <div class="auth-form-group">
+        <label class="auth-label">パスワード（6文字以上）</label>
+        <input type="password" class="auth-input" id="signup-password" placeholder="パスワードを設定">
+      </div>
+      <div class="auth-error" id="signup-error"></div>
+      <button class="auth-submit" id="signup-btn" onclick="doSignup()">アカウントを作成する</button>
+    </div>
+  </div>
+</div>
 
 <script>
-// ---- TABS ----
+
+<!-- ===== Supabase ===== -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<!-- Leaflet 地図 -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+// ========== SUPABASE ==========
+const SUPABASE_URL = 'https://vkynsxmtxrvsshhndyfu.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_bWLdw2ZFaHSHuDu5nQ2kfA_2jP8q74v';
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+// ========== 定数 ==========
+const SAMPLE_POSTS = [
+  {id:1,  cat:'food',    region:'大阪府八尾市',   area:'kinki',    emoji:'🍜', bg:'#FAEEDA', title:'八尾名物「かしわ天うどん」が絶品すぎた！',       desc:'JR八尾駅すぐの老舗うどん屋さん。ふわっとした鶏天とだしの香りが最高でした🍜', author_name:'やおすき太郎', av:'av-amber',  likes:42,  liked:false, lat:34.6284, lng:135.6010},
+  {id:2,  cat:'nature',  region:'北海道富良野市', area:'hokkaido', emoji:'🌸', bg:'#EAF3DE', title:'富良野のラベンダー畑、息をのむ美しさ',           desc:'一面に広がる紫のラベンダー。7月が見ごろで丘の上から見下ろす景色は絶景です🌿', author_name:'富良野LOVE',  av:'av-green',  likes:210, liked:false, lat:43.3424, lng:142.3831},
+  {id:3,  cat:'food',    region:'福岡県福岡市',   area:'kyushu',   emoji:'🍢', bg:'#FAEEDA', title:'屋台文化の本場・中洲で食べた豚骨ラーメン',      desc:'夜の中洲、屋台のカウンターで食べる一杯は格別。濃厚なのにするすると入るスープ🍜', author_name:'はかたっこ',  av:'av-coral',  likes:98,  liked:false, lat:33.5904, lng:130.3990},
+  {id:4,  cat:'history', region:'岐阜県白川村',   area:'chubu',    emoji:'🏯', bg:'#EDE8F5', title:'合掌造りの里・白川郷、冬のライトアップが幻想的', desc:'雪に包まれた合掌造りがライトアップされる冬の風景は圧巻の美しさです。',          author_name:'しらかわゆき', av:'av-purple', likes:183, liked:false, lat:36.2578, lng:136.9058},
+  {id:5,  cat:'event',   region:'青森県青森市',   area:'tohoku',   emoji:'🎉', bg:'#FAECE7', title:'青森ねぶた祭、熱気と迫力に圧倒された！',        desc:'巨大な山車と跳人たちの掛け声、太鼓の音が体に響く。一生に一度は見てほしいお祭り🎊', author_name:'ねぶた大好き', av:'av-blue',   likes:156, liked:false, lat:40.8225, lng:140.7477},
+  {id:6,  cat:'spot',    region:'京都府京都市',   area:'kinki',    emoji:'⛩️', bg:'#E1F5EE', title:'早朝の伏見稲荷、人のいない千本鳥居へ',         desc:'朝6時に訪問。朝靄の中に続く朱色の鳥居は神秘的で本当の京都を感じました。',        author_name:'京都朝活',   av:'av-teal',   likes:74,  liked:false, lat:34.9671, lng:135.7727},
+  {id:7,  cat:'food',    region:'大阪府大阪市',   area:'kinki',    emoji:'🐙', bg:'#FAEEDA', title:'道頓堀のたこ焼きはやっぱり別格！',             desc:'ふわふわの生地にとろけるたこ。食べ歩きしながら道頓堀を楽しむのが最高です🐙',      author_name:'なにわっ子',  av:'av-amber',  likes:63,  liked:false, lat:34.6687, lng:135.5002},
+  {id:8,  cat:'nature',  region:'沖縄県那覇市',   area:'kyushu',   emoji:'🌺', bg:'#EAF3DE', title:'波の上ビーチ、都市の中の青い海',               desc:'那覇市内からアクセスできる天然ビーチ。エメラルドグリーンの海が疲れを吹き飛ばします🌊', author_name:'うちなーんちゅ', av:'av-green', likes:89,  liked:false, lat:26.2167, lng:127.6800},
+  {id:9,  cat:'history', region:'奈良県奈良市',   area:'kinki',    emoji:'🦌', bg:'#EDE8F5', title:'奈良公園の鹿、まさに「神の使い」',             desc:'1000頭以上の鹿が自由に歩く奈良公園。せんべいを差し出すと囲まれる体験は最高🙏',    author_name:'しかもふもふ', av:'av-purple', likes:121, liked:false, lat:34.6851, lng:135.8328},
+  {id:10, cat:'event',   region:'大阪府八尾市',   area:'kinki',    emoji:'🎶', bg:'#FAECE7', title:'八尾河内音頭まつり、今年も熱かった！',          desc:'毎年夏の風物詩、八尾の河内音頭。世代を超えた一体感が生まれる最高のお祭りです🎊',    author_name:'おどり大好きMai', av:'av-coral', likes:103, liked:false, lat:34.6284, lng:135.6010},
+];
+
+const CAT_CLS   = {food:'ctag-food',nature:'ctag-nature',event:'ctag-event',history:'ctag-history',spot:'ctag-spot',shop:'ctag-shop'};
+const CAT_LBL   = {food:'グルメ',nature:'自然',event:'イベント',history:'歴史',spot:'スポット',shop:'お買い物'};
+const CAT_EMOJI = {food:'🍜',nature:'🌿',event:'🎉',history:'🏯',spot:'📍',shop:'🛒'};
+const CAT_BG    = {food:'#FAEEDA',nature:'#EAF3DE',event:'#FAECE7',history:'#EDE8F5',spot:'#E1F5EE',shop:'#E6F1FB'};
+const AV_COLORS = ['av-blue','av-amber','av-coral','av-green','av-teal','av-purple'];
+const AREAS = [
+  {key:'hokkaido',name:'北海道',emoji:'🌿',posts:142},{key:'tohoku',name:'東北',emoji:'⛄',posts:89},
+  {key:'kanto',name:'関東',emoji:'🗼',posts:234},{key:'chubu',name:'中部',emoji:'🗻',posts:176},
+  {key:'kinki',name:'近畿',emoji:'🏯',posts:198},{key:'chugoku',name:'中国',emoji:'⛩️',posts:67},
+  {key:'shikoku',name:'四国',emoji:'🍊',posts:54},{key:'kyushu',name:'九州・沖縄',emoji:'🌺',posts:121},
+];
+
+// ========== 状態管理 ==========
+let postData = [];
+let currentCat = 'all', currentRegion = 'all', snsStyle = 'casual';
+let currentUser = null; // ログインユーザー
+let favSet = new Set(JSON.parse(localStorage.getItem('jimoto_favs') || '[]'));
+let likedSet = new Set(JSON.parse(localStorage.getItem('jimoto_likes') || '[]'));
+let mapInstance = null, mapMarkers = [], mapCatFilter = 'all';
+const SESSION_ID = localStorage.getItem('jimoto_sid') || (() => {
+  const id = crypto.randomUUID(); localStorage.setItem('jimoto_sid', id); return id;
+})();
+
+// ========== 認証 ==========
+async function initAuth() {
+  const { data: { session } } = await db.auth.getSession();
+  if (session?.user) setUser(session.user);
+  db.auth.onAuthStateChange((_event, session) => {
+    if (session?.user) setUser(session.user);
+    else setUser(null);
+  });
+}
+
+function setUser(user) {
+  currentUser = user;
+  const bar = document.getElementById('auth-bar');
+  if (user) {
+    const name = user.user_metadata?.nickname || user.email.split('@')[0];
+    bar.innerHTML = `
+      <div style="position:relative">
+        <div class="user-avatar" onclick="toggleUserMenu()" title="${name}">${name[0].toUpperCase()}</div>
+        <div class="user-menu" id="user-menu" style="display:none">
+          <div class="user-menu-item">👤 ${name}</div>
+          <div class="user-menu-item" onclick="switchTab('fav',null);closeUserMenu()">⭐ お気に入り</div>
+          <div class="user-menu-item danger" onclick="doLogout()">ログアウト</div>
+        </div>
+      </div>
+      <button class="post-btn" onclick="openModal()">＋ 投稿する</button>`;
+  } else {
+    bar.innerHTML = `
+      <button class="auth-btn" onclick="openAuthModal('login')">ログイン</button>
+      <button class="post-btn" onclick="openModal()">＋ 投稿する</button>`;
+  }
+}
+
+function toggleUserMenu() {
+  const m = document.getElementById('user-menu');
+  m.style.display = m.style.display === 'none' ? 'block' : 'none';
+}
+function closeUserMenu() {
+  const m = document.getElementById('user-menu');
+  if(m) m.style.display = 'none';
+}
+document.addEventListener('click', e => {
+  if(!e.target.closest('.user-avatar') && !e.target.closest('#user-menu')) closeUserMenu();
+});
+
+function openAuthModal(tab) {
+  document.getElementById('auth-modal').classList.add('open');
+  switchAuthTab(tab);
+}
+function closeAuthModal() { document.getElementById('auth-modal').classList.remove('open'); }
+document.getElementById('auth-modal').addEventListener('click', function(e){ if(e.target===this) closeAuthModal(); });
+
+function switchAuthTab(tab) {
+  document.getElementById('auth-form-login').style.display = tab==='login' ? 'block' : 'none';
+  document.getElementById('auth-form-signup').style.display = tab==='signup' ? 'block' : 'none';
+  document.getElementById('tab-login').classList.toggle('active', tab==='login');
+  document.getElementById('tab-signup').classList.toggle('active', tab==='signup');
+}
+
+async function doLogin() {
+  const email = document.getElementById('login-email').value.trim();
+  const password = document.getElementById('login-password').value;
+  const errEl = document.getElementById('login-error');
+  const btn = document.getElementById('login-btn');
+  if(!email||!password){errEl.textContent='メールアドレスとパスワードを入力してください';return;}
+  btn.disabled=true; btn.textContent='ログイン中…';
+  const {error} = await db.auth.signInWithPassword({email, password});
+  if(error){errEl.textContent='メールアドレスまたはパスワードが正しくありません';btn.disabled=false;btn.textContent='ログインする';return;}
+  closeAuthModal();
+  showToast('ログインしました！');
+  btn.disabled=false; btn.textContent='ログインする';
+}
+
+async function doSignup() {
+  const name = document.getElementById('signup-name').value.trim();
+  const email = document.getElementById('signup-email').value.trim();
+  const password = document.getElementById('signup-password').value;
+  const errEl = document.getElementById('signup-error');
+  const btn = document.getElementById('signup-btn');
+  if(!name||!email||!password){errEl.textContent='すべての項目を入力してください';return;}
+  if(password.length<6){errEl.textContent='パスワードは6文字以上で入力してください';return;}
+  btn.disabled=true; btn.textContent='登録中…';
+  const {error} = await db.auth.signUp({email, password, options:{data:{nickname:name}}});
+  if(error){errEl.textContent='登録に失敗しました: '+error.message;btn.disabled=false;btn.textContent='アカウントを作成する';return;}
+  closeAuthModal();
+  showToast('登録完了！確認メールをお送りしました📧');
+  btn.disabled=false; btn.textContent='アカウントを作成する';
+}
+
+async function doLogout() {
+  await db.auth.signOut();
+  showToast('ログアウトしました');
+}
+
+// ========== お気に入り ==========
+function toggleFav(id) {
+  const sid = String(id);
+  if(favSet.has(sid)) {
+    favSet.delete(sid);
+    showToast('お気に入りを解除しました');
+  } else {
+    favSet.add(sid);
+    showToast('⭐ お気に入りに追加しました！');
+  }
+  localStorage.setItem('jimoto_favs', JSON.stringify([...favSet]));
+  renderPosts();
+  renderFavs();
+}
+
+function renderFavs() {
+  const wrap = document.getElementById('fav-container');
+  const favPosts = postData.filter(p => favSet.has(String(p.id)));
+  if(!favPosts.length) {
+    wrap.innerHTML = '<p style="color:var(--text-sub);font-size:0.87rem;text-align:center;padding:2rem 0;">まだお気に入りがありません。<br>投稿の⭐ボタンから追加できます。</p>';
+    return;
+  }
+  wrap.innerHTML = '';
+  favPosts.forEach(p => {
+    const d = document.createElement('div');
+    d.className = 'card';
+    d.innerHTML = buildCardHTML(p);
+    wrap.appendChild(d);
+  });
+}
+
+// ========== 地図 ==========
+const REGION_COORDS = {
+  hokkaido:[43.0646,141.3468], tohoku:[38.2688,140.8720], kanto:[35.6895,139.6917],
+  chubu:[36.6513,136.7216], kinki:[34.6937,135.5023], chugoku:[34.3966,132.4596],
+  shikoku:[33.7500,133.0000], kyushu:[32.7503,130.7500], user:[35.6895,139.6917],
+};
+
+function initMap() {
+  if(mapInstance) return;
+  mapInstance = L.map('map').setView([36.2048, 138.2529], 5);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors', maxZoom:18
+  }).addTo(mapInstance);
+}
+
+function updateMap() {
+  if(!mapInstance) initMap();
+  setTimeout(() => mapInstance.invalidateSize(), 100);
+  mapMarkers.forEach(m => m.remove());
+  mapMarkers = [];
+  const filtered = postData.filter(p => mapCatFilter==='all' || p.cat===mapCatFilter);
+  const list = document.getElementById('map-spot-list');
+  list.innerHTML = '';
+
+  filtered.forEach(p => {
+    const lat = p.lat || (REGION_COORDS[p.area] ? REGION_COORDS[p.area][0] + (Math.random()-0.5)*1.5 : 36.2048 + (Math.random()-0.5)*5);
+    const lng = p.lng || (REGION_COORDS[p.area] ? REGION_COORDS[p.area][1] + (Math.random()-0.5)*1.5 : 138.2529 + (Math.random()-0.5)*5);
+    const icon = L.divIcon({
+      html: `<div style="font-size:1.6rem;line-height:1;filter:drop-shadow(0 2px 4px rgba(0,0,0,0.3))">${p.emoji}</div>`,
+      iconSize:[32,32], iconAnchor:[16,16], className:''
+    });
+    const marker = L.marker([lat,lng], {icon}).addTo(mapInstance);
+    marker.bindPopup(`<b>${p.title}</b><br><small>📍 ${p.region}</small><br><small>♥ ${p.likes||0}</small>`);
+    mapMarkers.push(marker);
+
+    // リスト
+    const item = document.createElement('div');
+    item.className = 'map-spot-item';
+    item.innerHTML = `<div class="map-spot-emoji">${p.emoji}</div><div class="map-spot-info"><div class="map-spot-title">${p.title}</div><div class="map-spot-region">📍 ${p.region}</div></div>`;
+    item.onclick = () => { mapInstance.setView([lat,lng],13); marker.openPopup(); };
+    list.appendChild(item);
+  });
+}
+
+function filterMapCat(cat, el) {
+  mapCatFilter = cat;
+  document.querySelectorAll('.map-filter-bar .tag-pill').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active');
+  updateMap();
+}
+
+// ========== TABS ==========
 function switchTab(name, el) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.getElementById('panel-' + name).classList.add('active');
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
   if (el) el.classList.add('active');
   else {
-    const tabs = document.querySelectorAll('.tab');
-    const map = {feed:0, rank:1, region:2};
-    if (map[name] !== undefined) tabs[map[name]].classList.add('active');
+    const m={feed:0,ai:1,sns:2,map:3,rank:4,fav:5,region:6};
+    if(m[name]!=null) document.querySelectorAll('.tab')[m[name]]?.classList.add('active');
   }
+  if (name === 'rank') renderRanking();
+  if (name === 'sns') populateSNSSelect();
+  if (name === 'map') updateMap();
+  if (name === 'fav') renderFavs();
+}
+function setNav(el) { document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active')); el.classList.add('active'); }
+
+// ========== SUPABASE データ ==========
+async function loadPosts() {
+  showLoading(true);
+  try {
+    const { data, error } = await db.from('投稿').select('*').order('created_at', { ascending: false });
+    if (error) throw error;
+    postData = data.length ? data.map(row => ({
+      id: row.id, cat: row.カテゴリ||'spot', region: row.領域||'', area: row.エリア||'user',
+      emoji: row.絵文字||CAT_EMOJI[row.カテゴリ]||'📍', bg: CAT_BG[row.カテゴリ]||'#E1F5EE',
+      title: row.タイトル, desc: row.説明文||'', author_name: row.author_name||'匿名',
+      av: AV_COLORS[Math.abs(hashStr(row.author_name||''))%AV_COLORS.length],
+      likes: row.いいね||0, liked: likedSet.has(String(row.id)),
+      lat: null, lng: null,
+    })) : SAMPLE_POSTS;
+  } catch(e) { postData = SAMPLE_POSTS; }
+  showLoading(false);
+  renderPosts(); renderRanking(); populateSNSSelect(); updateStatCount();
 }
 
-function setNavActive(el) {
-  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-  el.classList.add('active');
+function hashStr(s) { let h=0; for(let i=0;i<s.length;i++) h=Math.imul(31,h)+s.charCodeAt(i)|0; return h; }
+function showLoading(on) {
+  const c = document.getElementById('posts-container');
+  if(on) c.innerHTML = '<p style="color:var(--text-sub);font-size:0.87rem;text-align:center;padding:2rem 0;">読み込み中…</p>';
+}
+function updateStatCount() { document.getElementById('stat-posts').textContent = postData.length.toLocaleString(); }
+
+async function savePostToDB(title, desc, region, cat) {
+  try {
+    const { data, error } = await db.from('投稿').insert({
+      タイトル:title, 説明文:desc, 領域:region, カテゴリ:cat,
+      絵文字:CAT_EMOJI[cat]||'📍', author_name: currentUser?.user_metadata?.nickname || 'あなた', いいね:0,
+    }).select().single();
+    if(error) throw error;
+    return data;
+  } catch(e) { return null; }
 }
 
-// ---- MODAL ----
-function openModal() { document.getElementById('modal').classList.add('open'); }
-function closeModal() { document.getElementById('modal').classList.remove('open'); }
-document.getElementById('modal').addEventListener('click', function(e){ if(e.target===this) closeModal(); });
-
-// ---- CAT SELECT ----
-function selectCat(el) {
-  document.querySelectorAll('.cat-option').forEach(o => o.classList.remove('selected'));
-  el.classList.add('selected');
+async function saveLikeToDB(postId, isLike) {
+  try {
+    if(isLike) {
+      await db.from('いいね').insert({post_id:postId, session_id:SESSION_ID});
+    } else {
+      await db.from('いいね').delete().eq('post_id',postId).eq('session_id',SESSION_ID);
+    }
+  } catch(e) {}
 }
 
-// ---- LIKE ----
-function toggleLike(btn) {
-  const isLiked = btn.classList.toggle('liked');
-  const span = btn.querySelector('span');
-  let n = parseInt(span.textContent.replace(/,/g,''));
-  const newN = isLiked ? n+1 : n-1;
-  btn.innerHTML = (isLiked ? '♥ ' : '♡ ') + '<span>' + newN.toLocaleString() + '</span>';
-}
-
-// ---- FILTER ----
-let currentCat = 'all', currentRegion = 'all';
-function applyFilters() {
-  const q = document.getElementById('search-input').value.trim().toLowerCase();
-  document.querySelectorAll('#posts-container .card').forEach(c => {
-    const catMatch = currentCat === 'all' || c.dataset.cat === currentCat;
-    const regMatch = currentRegion === 'all' || c.dataset.region === currentRegion;
-    const textMatch = !q || c.innerText.toLowerCase().includes(q);
-    c.style.display = (catMatch && regMatch && textMatch) ? '' : 'none';
-  });
-}
-function filterCat(cat, el) {
-  currentCat = cat;
-  document.querySelectorAll('.tag-pill').forEach(p => p.classList.remove('active'));
-  el.classList.add('active');
-  applyFilters();
-  switchTab('feed', null);
-}
-function filterRegion(region, el) {
-  currentRegion = region;
-  document.querySelectorAll('.region-chip').forEach(c => c.classList.remove('active'));
-  el.classList.add('active');
-  applyFilters();
-}
-function doSearch() { applyFilters(); }
-
-// ---- SUBMIT ----
-const catEmojis = {food:'🍜', nature:'🌿', event:'🎉', history:'🏯', spot:'📍', shop:'🛒'};
-const catColors = {food:'#FAEEDA', nature:'#EAF3DE', event:'#FAECE7', history:'#EDE8F5', spot:'#E1F5EE', shop:'#E6F1FB'};
-const catClass = {food:'ctag-food', nature:'ctag-nature', event:'ctag-event', history:'ctag-history', spot:'ctag-spot', shop:'ctag-shop'};
-const catLabel = {food:'グルメ', nature:'自然', event:'イベント', history:'歴史', spot:'スポット', shop:'お買い物'};
-
-function submitPost() {
-  const title = document.getElementById('post-title').value.trim();
-  const body = document.getElementById('post-body').value.trim();
-  const region = document.getElementById('post-region').value.trim();
-  if (!title || !body) { alert('タイトルと内容を入力してください。'); return; }
-  const catEl = document.querySelector('.cat-option.selected');
-  const cat = catEl ? catEl.dataset.cat : 'spot';
-  const emoji = catEmojis[cat] || '📍';
-  const bg = catColors[cat] || '#E1F5EE';
-  const cls = catClass[cat] || 'ctag-spot';
-  const lbl = catLabel[cat] || 'スポット';
-  const regionLabel = region || '不明';
-
-  const container = document.getElementById('posts-container');
-  const div = document.createElement('div');
-  div.className = 'card'; div.dataset.cat = cat; div.dataset.region = 'user';
-  div.innerHTML = `
-    <div class="card-image" style="background:${bg};">${emoji}</div>
+// ========== カードHTML生成 ==========
+function buildCardHTML(p) {
+  const isFav = favSet.has(String(p.id));
+  return `
+    <div class="card-image" style="background:${p.bg}">${p.emoji}</div>
     <div class="card-body">
-      <div class="card-meta"><span class="ctag ${cls}">${lbl}</span><span class="region-tag">📍 ${regionLabel}</span></div>
-      <div class="card-title">${title}</div>
-      <div class="card-desc">${body}</div>
+      <div class="card-meta"><span class="ctag ${CAT_CLS[p.cat]||'ctag-spot'}">${CAT_LBL[p.cat]||'スポット'}</span><span class="region-tag">📍 ${p.region}</span></div>
+      <div class="card-title">${p.title}</div>
+      <div class="card-desc">${p.desc||''}</div>
     </div>
     <div class="card-footer">
-      <div class="author"><div class="avatar av-blue">あ</div>あなた</div>
+      <div class="author"><div class="avatar ${p.av||'av-blue'}">${(p.author_name||'?')[0]}</div>${p.author_name||'匿名'}</div>
       <div class="card-actions">
-        <button class="action-btn" onclick="toggleLike(this)">♡ <span>0</span></button>
-        <button class="action-btn">💬 0</button>
-        <button class="action-btn">🔗</button>
+        <button class="action-btn ${p.liked?'liked':''}" onclick="toggleLike(this,'${p.id}')">${p.liked?'♥':'♡'} <span>${(p.likes||0).toLocaleString()}</span></button>
+        <button class="fav-btn ${isFav?'saved':''}" onclick="toggleFav('${p.id}')" title="${isFav?'お気に入り解除':'お気に入り追加'}">${isFav?'⭐':'☆'}</button>
+        <button class="action-btn" onclick="sharePost('${p.id}')">🔗</button>
       </div>
     </div>`;
-  container.insertBefore(div, container.firstChild);
-
-  const stat = document.getElementById('stat-posts');
-  stat.textContent = (parseInt(stat.textContent.replace(/,/g,'')) + 1).toLocaleString();
-
-  closeModal();
-  ['post-title','post-body','post-region'].forEach(id => document.getElementById(id).value = '');
-  document.querySelectorAll('.cat-option').forEach(o => o.classList.remove('selected'));
-
-  const toast = document.getElementById('toast');
-  toast.classList.add('show');
-  setTimeout(() => toast.classList.remove('show'), 3000);
-  switchTab('feed', null);
 }
 
-// ---- REGION GRID ----
-const regions = [
-  {name:'北海道', emoji:'🌿', posts:142},
-  {name:'東北', emoji:'⛄', posts:89},
-  {name:'関東', emoji:'🗼', posts:234},
-  {name:'中部', emoji:'🗻', posts:176},
-  {name:'近畿', emoji:'🏯', posts:198},
-  {name:'中国', emoji:'⛩️', posts:67},
-  {name:'四国', emoji:'🍊', posts:54},
-  {name:'九州・沖縄', emoji:'🌺', posts:121},
-];
-const grid = document.getElementById('region-grid');
-regions.forEach(r => {
-  const d = document.createElement('div');
-  d.style.cssText = 'background:#fff; border-radius:14px; border:1px solid rgba(0,0,0,0.08); padding:1.25rem; text-align:center; cursor:pointer; transition:box-shadow 0.2s;';
-  d.onmouseenter = () => d.style.boxShadow = '0 4px 16px rgba(0,0,0,0.07)';
-  d.onmouseleave = () => d.style.boxShadow = '';
-  d.innerHTML = `<div style="font-size:2.2rem;margin-bottom:8px;">${r.emoji}</div><div style="font-weight:700;font-size:0.95rem;margin-bottom:4px;">${r.name}</div><div style="font-size:0.75rem;color:#5F5E5A;">${r.posts}件の投稿</div>`;
-  grid.appendChild(d);
-});
+// ========== RENDER FEED ==========
+function renderPosts() {
+  const q = document.getElementById('search-input').value.trim().toLowerCase();
+  const wrap = document.getElementById('posts-container');
+  const list = postData.filter(p => {
+    if(currentCat!=='all' && p.cat!==currentCat) return false;
+    if(currentRegion!=='all' && p.area!==currentRegion) return false;
+    if(q && !p.title.toLowerCase().includes(q) && !(p.desc||'').toLowerCase().includes(q) && !p.region.toLowerCase().includes(q)) return false;
+    return true;
+  }).sort((a,b) => typeof a.id==='string' ? b.id.localeCompare(a.id) : b.id-a.id);
+  wrap.innerHTML = list.length ? '' : '<p style="color:var(--text-sub);font-size:0.87rem;text-align:center;padding:2rem 0;">この条件に一致する投稿がありません</p>';
+  list.forEach(p => {
+    const d = document.createElement('div'); d.className='card';
+    d.innerHTML = buildCardHTML(p);
+    wrap.appendChild(d);
+  });
+}
+
+function toggleLike(btn,id) {
+  const p = postData.find(x=>String(x.id)===String(id)); if(!p) return;
+  p.liked=!p.liked; p.likes+=p.liked?1:-1;
+  if(p.liked) likedSet.add(String(id)); else likedSet.delete(String(id));
+  localStorage.setItem('jimoto_likes', JSON.stringify([...likedSet]));
+  btn.className='action-btn'+(p.liked?' liked':'');
+  btn.innerHTML=(p.liked?'♥ ':'♡ ')+`<span>${p.likes.toLocaleString()}</span>`;
+  saveLikeToDB(id, p.liked);
+}
+
+function sharePost(id) {
+  const p = postData.find(x=>String(x.id)===String(id)); if(!p) return;
+  switchTab('sns',null); setNav(document.querySelectorAll('.nav-item')[3]);
+  populateSNSSelect();
+  setTimeout(()=>{ document.getElementById('sns-select').value=id; buildPreview(); },100);
+}
+
+function applyFilters() { renderPosts(); }
+function filterCat(cat,el) {
+  currentCat=cat;
+  document.querySelectorAll('.tag-pill').forEach(p=>p.classList.remove('active'));
+  if(el) el.classList.add('active');
+  renderPosts(); switchTab('feed',null);
+}
+function filterRegion(r,el) {
+  currentRegion=r;
+  document.querySelectorAll('.region-chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active'); renderPosts();
+}
+
+// ========== MODAL ==========
+function openModal() { document.getElementById('modal').classList.add('open'); }
+function closeModal() { document.getElementById('modal').classList.remove('open'); }
+document.getElementById('modal').addEventListener('click',function(e){if(e.target===this)closeModal();});
+function selCat(el) { document.querySelectorAll('.cat-option').forEach(o=>o.classList.remove('selected')); el.classList.add('selected'); }
+
+// ========== SUBMIT ==========
+async function submitPost() {
+  const title=document.getElementById('post-title').value.trim();
+  const body=document.getElementById('post-body').value.trim();
+  const region=document.getElementById('post-region').value.trim()||'不明な地域';
+  if(!title||!body){alert('タイトルと内容を入力してください。');return;}
+  const catEl=document.querySelector('.cat-option.selected');
+  const cat=catEl?catEl.dataset.cat:'spot';
+  const btn=document.querySelector('.submit-btn');
+  btn.disabled=true; btn.textContent='投稿中…';
+  const saved=await savePostToDB(title,body,region,cat);
+  const newPost={
+    id:saved?saved.id:Date.now(), cat, region, area:'user',
+    emoji:CAT_EMOJI[cat]||'📍', bg:CAT_BG[cat]||'#E1F5EE',
+    title, desc:body,
+    author_name: currentUser?.user_metadata?.nickname||'あなた', av:'av-blue',
+    likes:0, liked:false, lat:null, lng:null,
+  };
+  postData.unshift(newPost);
+  updateStatCount(); closeModal();
+  ['post-title','post-body','post-region'].forEach(id=>document.getElementById(id).value='');
+  document.querySelectorAll('.cat-option').forEach(o=>o.classList.remove('selected'));
+  renderPosts(); switchTab('feed',null); populateSNSSelect();
+  showToast(saved?'投稿をDBに保存しました！🗾':'投稿しました🗾');
+  btn.disabled=false; btn.textContent='🗾 じもとじまんを投稿する';
+}
+
+// ========== RANKING ==========
+function renderRanking() {
+  const medals=['🥇','🥈','🥉','4','5'], cls=['rank-1','rank-2','rank-3','rank-4','rank-5'];
+  document.getElementById('rank-list').innerHTML=
+    [...postData].sort((a,b)=>(b.likes||0)-(a.likes||0)).slice(0,5).map((p,i)=>`
+      <div class="rank-card">
+        <div class="rank-num ${cls[i]}">${medals[i]}</div>
+        <div class="rank-icon">${p.emoji}</div>
+        <div class="rank-info"><div class="rank-title">${p.title}</div><div class="rank-region">📍 ${p.region}・${CAT_LBL[p.cat]||''}</div></div>
+        <div class="rank-likes">♥ ${(p.likes||0).toLocaleString()}</div>
+      </div>`).join('');
+}
+
+// ========== REGION GRID ==========
+function renderRegionGrid() {
+  document.getElementById('region-grid').innerHTML=AREAS.map(a=>`
+    <div class="region-area-card" onclick="jumpRegion('${a.key}')">
+      <div class="region-area-emoji">${a.emoji}</div>
+      <div class="region-area-name">${a.name}</div>
+      <div class="region-area-count">${a.posts}件の投稿</div>
+    </div>`).join('');
+}
+function jumpRegion(key) {
+  currentRegion=key;
+  document.querySelectorAll('.region-chip').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.region-chip').forEach(c=>{if(c.textContent.trim()===AREAS.find(a=>a.key===key)?.name)c.classList.add('active');});
+  renderPosts(); switchTab('feed',null); setNav(document.querySelectorAll('.nav-item')[0]);
+}
+
+// ========== AI おすすめ ==========
+function setQ(el){document.getElementById('ai-q').value=el.textContent;}
+async function askAI() {
+  const region=document.getElementById('ai-region').value.trim();
+  const q=document.getElementById('ai-q').value.trim();
+  if(!q&&!region){showToast('地域か質問を入力してください');return;}
+  const btn=document.getElementById('ai-btn');
+  btn.disabled=true; btn.textContent='提案中…';
+  const wrap=document.getElementById('ai-result-wrap');
+  wrap.classList.add('visible');
+  document.getElementById('ai-thinking').style.display='flex';
+  document.getElementById('ai-intro').textContent='';
+  document.getElementById('ai-spot-cards').innerHTML='';
+  const prompt=`あなたは日本の地元観光スポットに詳しいガイドです。\n地域：${region||'日本全国'}\nユーザーの要望：「${q||'おすすめの地元スポットを教えてください'}」\nこの要望に合う魅力的なスポットや体験を3件、以下のJSONフォーマットで返してください。必ずJSON配列だけを返してください。\n[{"name":"スポット名","emoji":"絵文字1文字","category":"カテゴリ（グルメ/自然/歴史/イベント/スポット）","description":"2〜3文の説明","tip":"おすすめポイント（1文）"}]`;
+  try {
+    const res=await fetch('https://api.anthropic.com/v1/messages',{
+      method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})
+    });
+    const data=await res.json();
+    document.getElementById('ai-thinking').style.display='none';
+    const raw=data.content?.[0]?.text||'';
+    let spots=[];
+    try{const m=raw.match(/\[[\s\S]*\]/);spots=JSON.parse(m?m[0]:raw);}catch(e){spots=[];}
+    document.getElementById('ai-intro').textContent=`「${region||'日本全国'}」で「${q||'おすすめスポット'}」をお探しですね！AIがピッタリの地元スポットを${spots.length}件見つけました✨`;
+    document.getElementById('ai-spot-cards').innerHTML=spots.map(s=>`
+      <div class="ai-spot-card">
+        <div class="ai-spot-emoji">${s.emoji||'📍'}</div>
+        <div class="ai-spot-body">
+          <h4>${s.name}</h4><p>${s.description}</p>
+          <p style="margin-top:5px;color:var(--indigo);font-size:0.78rem;">💡 ${s.tip}</p>
+          <span class="ai-spot-tag">${s.category}</span>
+          <button class="ai-post-btn" onclick="prefillPost('${s.name.replace(/'/g,'&apos;')}','${(s.description+' '+s.tip).replace(/'/g,'&apos;')}','${region||''}','${s.category}')">このスポットを投稿する ↗</button>
+        </div>
+      </div>`).join('');
+    if(!spots.length) document.getElementById('ai-spot-cards').innerHTML='<p style="color:var(--text-sub);font-size:0.85rem;">スポットの取得に失敗しました。もう一度お試しください。</p>';
+  } catch(e) {
+    document.getElementById('ai-thinking').style.display='none';
+    document.getElementById('ai-intro').textContent='通信エラーが発生しました。もう一度お試しください。';
+  }
+  btn.disabled=false; btn.textContent='提案する ✨';
+}
+
+function prefillPost(name,desc,region,category) {
+  const catMap={'グルメ':'food','自然':'nature','歴史':'history','イベント':'event','スポット':'spot','お買い物':'shop'};
+  document.getElementById('post-title').value=name;
+  document.getElementById('post-body').value=desc;
+  document.getElementById('post-region').value=region;
+  const cat=catMap[category]||'spot';
+  document.querySelectorAll('.cat-option').forEach(o=>{o.classList.toggle('selected',o.dataset.cat===cat);});
+  openModal();
+}
+
+// ========== SNS ==========
+function populateSNSSelect() {
+  const sel=document.getElementById('sns-select');
+  const cur=sel.value;
+  sel.innerHTML='<option value="">— 投稿を選択してください —</option>';
+  postData.forEach(p=>{const opt=document.createElement('option');opt.value=p.id;opt.textContent=`${p.emoji} ${p.title}`;sel.appendChild(opt);});
+  if(cur) sel.value=cur;
+}
+function setStyle(s,el){snsStyle=s;document.querySelectorAll('.style-pill').forEach(p=>p.classList.remove('active'));el.classList.add('active');buildPreview();}
+function buildPreview(){
+  const id=document.getElementById('sns-select').value;
+  if(!id){document.getElementById('sns-preview').textContent='投稿を選択すると、ここにプレビューが表示されます。';updateHashtags([]);return;}
+  const p=postData.find(x=>String(x.id)===String(id));if(!p)return;
+  const texts={
+    casual:`${p.emoji} ${p.title}\n\n${p.desc}\n\n📍 ${p.region}`,
+    formal:`【${CAT_LBL[p.cat]||''}情報】${p.title}\n\n${p.desc}\n\n▼ 場所\n${p.region}`,
+    travel:`✈️ 旅レポ | ${p.region}\n\n「${p.title}」\n\n${p.desc}\n\n地元の人もおすすめの必見スポットです！`,
+    short:`${p.emoji} ${p.title} 📍${p.region}`,
+  };
+  document.getElementById('sns-preview').textContent=texts[snsStyle]||texts.casual;
+  const tags=['#じもとじまん','#地元の魅力',`#${p.region.replace(/[都道府県市区町村]/g,'')}`,`#${CAT_LBL[p.cat]||''}`,`#${p.region}観光`,'#旅行好きな人と繋がりたい','#日本の絶景'];
+  updateHashtags(tags);
+}
+function updateHashtags(tags){document.getElementById('sns-hashtags').innerHTML=tags.map(t=>`<span class="hashtag" onclick="copyTag('${t}')">${t}</span>`).join('');}
+function copyTag(t){navigator.clipboard.writeText(t).catch(()=>{});showToast(t+' をコピーしました');}
+function copyPreview(){
+  const txt=document.getElementById('sns-preview').textContent;
+  const tags=[...document.querySelectorAll('.sns-hashtags .hashtag')].map(h=>h.textContent).join(' ');
+  navigator.clipboard.writeText(txt+'\n\n'+tags).then(()=>showToast('テキストをコピーしました！')).catch(()=>showToast('コピーできませんでした'));
+}
+async function aiOptimize(){
+  const id=document.getElementById('sns-select').value;
+  if(!id){showToast('先に投稿を選択してください');return;}
+  const p=postData.find(x=>String(x.id)===String(id));if(!p)return;
+  const btn=document.getElementById('ai-opt-btn');
+  btn.disabled=true;btn.textContent='最適化中…';
+  const styleMap={casual:'カジュアルで親しみやすい',formal:'公式・フォーマルな',travel:'旅行ブログ風の臨場感ある',short:'X(Twitter)向けの短い'};
+  const prompt=`あなたはSNSマーケティングの専門家です。以下の地元スポット情報を、${styleMap[snsStyle]}SNS投稿文に最適化してください。絵文字を効果的に使い、読者が行ってみたくなるような魅力的な文章にしてください。投稿文のみを返してください（ハッシュタグは含めない）。\nスポット名：${p.title}\n場所：${p.region}\n内容：${p.desc}\nカテゴリ：${CAT_LBL[p.cat]||''}`;
+  try{
+    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:400,messages:[{role:'user',content:prompt}]})});
+    const data=await res.json();
+    const txt=data.content?.[0]?.text||'';
+    if(txt)document.getElementById('sns-preview').textContent=txt;
+    showToast('AIが投稿文を最適化しました✨');
+  }catch(e){showToast('エラーが発生しました');}
+  btn.disabled=false;btn.textContent='🤖 AIで最適化する';
+}
+function shareToSNS(platform){
+  const preview=document.getElementById('sns-preview').textContent;
+  const tags=[...document.querySelectorAll('.sns-hashtags .hashtag')].map(h=>h.textContent).join(' ');
+  const full=encodeURIComponent(preview+'\n\n'+tags);
+  const urls={x:`https://twitter.com/intent/tweet?text=${full}`,fb:`https://www.facebook.com/sharer/sharer.php?u=https://jimoto-jiman.vercel.app&quote=${full}`,line:`https://social-plugins.line.me/lineit/share?url=https://jimoto-jiman.vercel.app&text=${full}`,ig:null};
+  if(platform==='ig'){copyPreview();showToast('テキストをコピーしました。Instagramアプリで貼り付けてください📷');return;}
+  if(urls[platform])window.open(urls[platform],'_blank','width=600,height=500');
+  showToast({x:'X (Twitter)',fb:'Facebook',line:'LINE'}[platform]+' でシェアします！');
+}
+
+// ========== TOAST ==========
+function showToast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;
+  t.classList.add('show');clearTimeout(t._to);t._to=setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+// ========== INIT ==========
+renderRegionGrid();
+initAuth();
+loadPosts();
 </script>
 </body>
 </html>
