@@ -4,6 +4,31 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>じもとじまん — 全国地元魅力発信アプリ</title>
+<!-- SEO -->
+<meta name="description" content="あなたの地元の魅力を日本中へ。グルメ・自然・イベント・歴史… 全国の地元じまんをみんなでシェアしよう。写真や説明を投稿して地図上で共有できる地域情報アプリ。">
+<meta name="keywords" content="地元,じまん,観光,スポット,グルメ,自然,イベント,歴史,地域情報,日本">
+<!-- OGP -->
+<meta property="og:title" content="じもとじまん — 全国地元魅力発信アプリ">
+<meta property="og:description" content="あなたの地元の魅力を日本中へ。グルメ・自然・イベント・歴史… 地元じまんをみんなでシェアしよう">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jimoto-jiman.vercel.app">
+<meta property="og:image" content="https://jimoto-jiman.vercel.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ja_JP">
+<meta property="og:site_name" content="じもとじまん">
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="じもとじまん — 全国地元魅力発信アプリ">
+<meta name="twitter:description" content="あなたの地元の魅力を日本中へ。地元じまんをみんなでシェアしよう">
+<meta name="twitter:image" content="https://jimoto-jiman.vercel.app/og-image.png">
+<!-- PWA -->
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#0C447C">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="じもとじまん">
+<link rel="apple-touch-icon" href="/icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -213,6 +238,27 @@ header { background: var(--indigo-dark); color: #fff; padding: 0 1.25rem; displa
 /* TOAST */
 .toast { position: fixed; bottom: 5rem; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--indigo-dark); color: #fff; padding: 12px 24px; border-radius: 30px; font-size: 0.88rem; font-weight: 700; z-index: 300; transition: transform 0.3s; pointer-events: none; white-space: nowrap; }
 .toast.show { transform: translateX(-50%) translateY(0); }
+
+/* ===== コメントモーダル ===== */
+.comment-modal-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.5); z-index:250; align-items:flex-end; justify-content:center; }
+.comment-modal-overlay.open { display:flex; }
+.comment-modal { background:var(--surface); border-radius:var(--radius) var(--radius) 0 0; width:100%; max-width:600px; max-height:80vh; display:flex; flex-direction:column; padding-bottom:env(safe-area-inset-bottom); }
+.comment-modal-header { padding:1rem 1.25rem 0.75rem; border-bottom:1px solid var(--border); display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+.comment-modal-title { font-family:'Noto Serif JP',serif; font-size:1rem; font-weight:700; }
+.comment-list { flex:1; overflow-y:auto; padding:0.75rem 1.25rem; display:flex; flex-direction:column; gap:0.75rem; }
+.comment-item { display:flex; gap:10px; }
+.comment-avatar { width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:0.72rem; font-weight:700; color:#fff; flex-shrink:0; background:var(--indigo); }
+.comment-bubble { flex:1; background:var(--bg); border-radius:0 var(--radius-sm) var(--radius-sm) var(--radius-sm); padding:0.6rem 0.85rem; }
+.comment-author { font-size:0.72rem; font-weight:700; color:var(--indigo); margin-bottom:3px; }
+.comment-text { font-size:0.84rem; line-height:1.6; color:var(--text); }
+.comment-time { font-size:0.68rem; color:var(--text-sub); margin-top:3px; }
+.comment-empty { text-align:center; color:var(--text-sub); font-size:0.85rem; padding:2rem 0; }
+.comment-input-area { padding:0.85rem 1.25rem; border-top:1px solid var(--border); display:flex; gap:8px; flex-shrink:0; }
+.comment-input { flex:1; border:1.5px solid var(--border); border-radius:20px; padding:9px 14px; font-family:'Noto Sans JP',sans-serif; font-size:0.85rem; outline:none; background:var(--bg); transition:border-color 0.2s; }
+.comment-input:focus { border-color:var(--indigo); }
+.comment-send-btn { background:var(--indigo); color:#fff; border:none; border-radius:50%; width:38px; height:38px; font-size:1rem; cursor:pointer; flex-shrink:0; transition:background 0.2s; display:flex; align-items:center; justify-content:center; }
+.comment-send-btn:hover { background:var(--indigo-dark); }
+.comment-count { font-size:0.78rem; color:var(--text-sub); }
 
 /* BOTTOM NAV */
 .bottom-nav { position: fixed; bottom: 0; left: 0; right: 0; background: var(--surface); border-top: 1px solid var(--border); display: flex; z-index: 100; }
@@ -557,6 +603,23 @@ header { background: var(--indigo-dark); color: #fff; padding: 0 1.25rem; displa
 </div>
 
 <div class="toast" id="toast"></div>
+
+<!-- コメントモーダル -->
+<div class="comment-modal-overlay" id="comment-modal">
+  <div class="comment-modal">
+    <div class="comment-modal-header">
+      <span class="comment-modal-title">💬 コメント</span>
+      <button class="close-btn" onclick="closeCommentModal()">✕</button>
+    </div>
+    <div class="comment-list" id="comment-list">
+      <div class="comment-empty">読み込み中…</div>
+    </div>
+    <div class="comment-input-area">
+      <input type="text" class="comment-input" id="comment-input" placeholder="コメントを入力…" maxlength="200">
+      <button class="comment-send-btn" onclick="submitComment()" title="送信">➤</button>
+    </div>
+  </div>
+</div>
 
 <!-- 認証モーダル -->
 <div class="auth-modal-overlay" id="auth-modal">
@@ -903,6 +966,7 @@ function buildCardHTML(p) {
       <div class="card-actions">
         <button class="action-btn ${p.liked?'liked':''}" onclick="toggleLike(this,'${p.id}')">${p.liked?'♥':'♡'} <span>${(p.likes||0).toLocaleString()}</span></button>
         <button class="fav-btn ${isFav?'saved':''}" onclick="toggleFav('${p.id}')" title="${isFav?'お気に入り解除':'お気に入り追加'}">${isFav?'⭐':'☆'}</button>
+        <button class="action-btn" onclick="openCommentModal('${p.id}')">💬 <span id="cmt-${p.id}">${p.comment_count||0}</span></button>
         <button class="action-btn" onclick="sharePost('${p.id}')">🔗</button>
       </div>
     </div>`;
@@ -1138,6 +1202,98 @@ function showToast(msg){
 renderRegionGrid();
 initAuth();
 loadPosts();
+
+// ========== コメント ==========
+let currentCommentPostId = null;
+
+function openCommentModal(postId) {
+  currentCommentPostId = postId;
+  document.getElementById('comment-modal').classList.add('open');
+  document.getElementById('comment-input').value = '';
+  loadComments(postId);
+}
+
+function closeCommentModal() {
+  document.getElementById('comment-modal').classList.remove('open');
+  currentCommentPostId = null;
+}
+
+document.getElementById('comment-modal').addEventListener('click', function(e) {
+  if (e.target === this) closeCommentModal();
+});
+
+document.getElementById('comment-input').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') submitComment();
+});
+
+async function loadComments(postId) {
+  const list = document.getElementById('comment-list');
+  list.innerHTML = '<div class="comment-empty">読み込み中…</div>';
+  try {
+    const { data, error } = await db.from('コメント')
+      .select('*')
+      .eq('post_id', postId)
+      .order('created_at', { ascending: true });
+    if (error) throw error;
+    renderComments(data || []);
+  } catch(e) {
+    list.innerHTML = '<div class="comment-empty">コメントを読み込めませんでした</div>';
+  }
+}
+
+function renderComments(comments) {
+  const list = document.getElementById('comment-list');
+  if (!comments.length) {
+    list.innerHTML = '<div class="comment-empty">まだコメントはありません。最初のコメントを書いてみよう！</div>';
+    return;
+  }
+  list.innerHTML = comments.map(c => {
+    const name = c.author_name || '匿名';
+    const initial = name[0].toUpperCase();
+    const color = AV_COLORS[Math.abs(hashStr(name)) % AV_COLORS.length].replace('av-','');
+    const colorMap = {'blue':'var(--indigo)','amber':'var(--amber)','coral':'var(--coral)','green':'var(--green)','teal':'var(--teal)','purple':'var(--purple)'};
+    const bg = colorMap[color] || 'var(--indigo)';
+    const time = new Date(c.created_at).toLocaleString('ja-JP', {month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});
+    return `
+      <div class="comment-item">
+        <div class="comment-avatar" style="background:${bg}">${initial}</div>
+        <div class="comment-bubble">
+          <div class="comment-author">${name}</div>
+          <div class="comment-text">${c.body.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
+          <div class="comment-time">${time}</div>
+        </div>
+      </div>`;
+  }).join('');
+  list.scrollTop = list.scrollHeight;
+
+  // カードのコメント数を更新
+  const el = document.getElementById('cmt-' + currentCommentPostId);
+  if (el) el.textContent = comments.length;
+}
+
+async function submitComment() {
+  if (!currentCommentPostId) return;
+  const input = document.getElementById('comment-input');
+  const body = input.value.trim();
+  if (!body) return;
+  if (!currentUser) { showToast('コメントするにはログインが必要です'); openAuthModal('login'); return; }
+  const author_name = currentUser.user_metadata?.nickname || currentUser.email.split('@')[0];
+  input.value = '';
+  try {
+    await db.from('コメント').insert({ post_id: currentCommentPostId, body, author_name });
+    loadComments(currentCommentPostId);
+  } catch(e) {
+    showToast('コメントの投稿に失敗しました');
+    input.value = body;
+  }
+}
+
+// ========== PWA SERVICE WORKER ==========
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  });
+}
 </script>
 </body>
 </html>
