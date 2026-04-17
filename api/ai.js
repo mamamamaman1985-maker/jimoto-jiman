@@ -1,3 +1,4 @@
+// Anthropic API プロキシ（サーバーレス関数）
 module.exports = async function handler(req, res) {
   // CORS ヘッダー
   res.setHeader('Access-Control-Allow-Origin', 'https://jimoto-jiman.vercel.app');
