@@ -1097,9 +1097,9 @@ async function askAI() {
   document.getElementById('ai-spot-cards').innerHTML='';
   const prompt=`あなたは日本の地元観光スポットに詳しいガイドです。\n地域：${region||'日本全国'}\nユーザーの要望：「${q||'おすすめの地元スポットを教えてください'}」\nこの要望に合う魅力的なスポットや体験を3件、以下のJSONフォーマットで返してください。必ずJSON配列だけを返してください。\n[{"name":"スポット名","emoji":"絵文字1文字","category":"カテゴリ（グルメ/自然/歴史/イベント/スポット）","description":"2〜3文の説明","tip":"おすすめポイント（1文）"}]`;
   try {
-    const res=await fetch('https://api.anthropic.com/v1/messages',{
+    const res=await fetch('/api/ai',{
       method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:1000,messages:[{role:'user',content:prompt}]})
+      body:JSON.stringify({model:'claude-sonnet-4-5-20251001',max_tokens:1000,messages:[{role:'user',content:prompt}]})
     });
     const data=await res.json();
     document.getElementById('ai-thinking').style.display='none';
@@ -1174,7 +1174,7 @@ async function aiOptimize(){
   const styleMap={casual:'カジュアルで親しみやすい',formal:'公式・フォーマルな',travel:'旅行ブログ風の臨場感ある',short:'X(Twitter)向けの短い'};
   const prompt=`あなたはSNSマーケティングの専門家です。以下の地元スポット情報を、${styleMap[snsStyle]}SNS投稿文に最適化してください。絵文字を効果的に使い、読者が行ってみたくなるような魅力的な文章にしてください。投稿文のみを返してください（ハッシュタグは含めない）。\nスポット名：${p.title}\n場所：${p.region}\n内容：${p.desc}\nカテゴリ：${CAT_LBL[p.cat]||''}`;
   try{
-    const res=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:400,messages:[{role:'user',content:prompt}]})});
+    const res=await fetch('/api/ai',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-5-20251001',max_tokens:400,messages:[{role:'user',content:prompt}]})});
     const data=await res.json();
     const txt=data.content?.[0]?.text||'';
     if(txt)document.getElementById('sns-preview').textContent=txt;
