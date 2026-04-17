@@ -9,7 +9,12 @@ module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
-  if (!apiKey) return res.status(500).json({ error: 'APIキーが設定されていません' });
+  // デバッグ: 環境変数の存在チェック（一時的）
+  if (!apiKey) return res.status(500).json({
+    error: 'APIキーが設定されていません',
+    envKeys: Object.keys(process.env).filter(k => k.includes('ANTHROPIC') || k.includes('API')),
+    nodeEnv: process.env.NODE_ENV,
+  });
 
   try {
     const response = await fetch('https://api.anthropic.com/v1/messages', {
