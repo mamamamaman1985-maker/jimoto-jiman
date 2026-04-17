@@ -9,11 +9,11 @@ module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
   const apiKey = process.env.ANTHROPIC_API_KEY;
-  // デバッグ: 環境変数の存在チェック（一時的）
   if (!apiKey) return res.status(500).json({
     error: 'APIキーが設定されていません',
-    envKeys: Object.keys(process.env).filter(k => k.includes('ANTHROPIC') || k.includes('API')),
-    nodeEnv: process.env.NODE_ENV,
+    keyLength: String(apiKey ?? '').length,
+    keyType: typeof apiKey,
+    keyPrefix: apiKey ? apiKey.slice(0, 10) : '(empty)',
   });
 
   try {
