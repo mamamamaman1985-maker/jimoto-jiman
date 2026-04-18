@@ -701,6 +701,17 @@ const AREAS = [
   {key:'shikoku',name:'四国',emoji:'🍊',posts:54},{key:'kyushu',name:'九州・沖縄',emoji:'🌺',posts:121},
 ];
 
+// ========== セキュリティ: XSS対策 ==========
+function escapeHTML(str) {
+  if (str == null) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 // ========== 状態管理 ==========
 let postData = [];
 let currentCat = 'all', currentRegion = 'all', snsStyle = 'casual';
@@ -727,11 +738,12 @@ function setUser(user) {
   const bar = document.getElementById('auth-bar');
   if (user) {
     const name = user.user_metadata?.nickname || user.email.split('@')[0];
+    const safeName = escapeHTML(name);
     bar.innerHTML = `
       <div style="position:relative">
-        <div class="user-avatar" onclick="toggleUserMenu()" title="${name}">${name[0].toUpperCase()}</div>
+        <div class="user-avatar" onclick="toggleUserMenu()" title="${safeName}">${escapeHTML(name[0].toUpperCase())}</div>
         <div class="user-menu" id="user-menu" style="display:none">
-          <div class="user-menu-item">👤 ${name}</div>
+          <div class="user-menu-item">👤 ${safeName}</div>
           <div class="user-menu-item" onclick="switchTab('fav',null);closeUserMenu()">⭐ お気に入り</div>
           <div class="user-menu-item danger" onclick="doLogout()">ログアウト</div>
         </div>
@@ -874,7 +886,7 @@ function updateMap() {
     // リスト
     const item = document.createElement('div');
     item.className = 'map-spot-item';
-    item.innerHTML = `<div class="map-spot-emoji">${p.emoji}</div><div class="map-spot-info"><div class="map-spot-title">${p.title}</div><div class="map-spot-region">📍 ${p.region}</div></div>`;
+    item.innerHTML = `<div class="map-spot-emoji">${escapeHTML(p.emoji)}</div><div class="map-spot-info"><div class="map-spot-title">${escapeHTML(p.title)}</div><div class="map-spot-region">📍 ${escapeHTML(p.region)}</div></div>`;
     item.onclick = () => { mapInstance.setView([lat,lng],13); marker.openPopup(); };
     list.appendChild(item);
   });
@@ -954,20 +966,29 @@ async function saveLikeToDB(postId, isLike) {
 // ========== カードHTML生成 ==========
 function buildCardHTML(p) {
   const isFav = favSet.has(String(p.id));
+  const safeId = escapeHTML(String(p.id));
+  const safeTitle = escapeHTML(p.title);
+  const safeDesc = escapeHTML(p.desc || '');
+  const safeRegion = escapeHTML(p.region);
+  const safeAuthor = escapeHTML(p.author_name || '匿名');
+  const safeInitial = escapeHTML((p.author_name || '?')[0]);
+  const safeEmoji = escapeHTML(p.emoji);
+  const safeBg = escapeHTML(p.bg);
+  const safeAv = escapeHTML(p.av || 'av-blue');
   return `
-    <div class="card-image" style="background:${p.bg}">${p.emoji}</div>
+    <div class="card-image" style="background:${safeBg}">${safeEmoji}</div>
     <div class="card-body">
-      <div class="card-meta"><span class="ctag ${CAT_CLS[p.cat]||'ctag-spot'}">${CAT_LBL[p.cat]||'スポット'}</span><span class="region-tag">📍 ${p.region}</span></div>
-      <div class="card-title">${p.title}</div>
-      <div class="card-desc">${p.desc||''}</div>
+      <div class="card-meta"><span class="ctag ${CAT_CLS[p.cat]||'ctag-spot'}">${CAT_LBL[p.cat]||'スポット'}</span><span class="region-tag">📍 ${safeRegion}</span></div>
+      <div class="card-title">${safeTitle}</div>
+      <div class="card-desc">${safeDesc}</div>
     </div>
     <div class="card-footer">
-      <div class="author"><div class="avatar ${p.av||'av-blue'}">${(p.author_name||'?')[0]}</div>${p.author_name||'匿名'}</div>
+      <div class="author"><div class="avatar ${safeAv}">${safeInitial}</div>${safeAuthor}</div>
       <div class="card-actions">
-        <button class="action-btn ${p.liked?'liked':''}" onclick="toggleLike(this,'${p.id}')">${p.liked?'♥':'♡'} <span>${(p.likes||0).toLocaleString()}</span></button>
-        <button class="fav-btn ${isFav?'saved':''}" onclick="toggleFav('${p.id}')" title="${isFav?'お気に入り解除':'お気に入り追加'}">${isFav?'⭐':'☆'}</button>
-        <button class="action-btn" onclick="openCommentModal('${p.id}')">💬 <span id="cmt-${p.id}">${p.comment_count||0}</span></button>
-        <button class="action-btn" onclick="sharePost('${p.id}')">🔗</button>
+        <button class="action-btn ${p.liked?'liked':''}" onclick="toggleLike(this,'${safeId}')">${p.liked?'♥':'♡'} <span>${(p.likes||0).toLocaleString()}</span></button>
+        <button class="fav-btn ${isFav?'saved':''}" onclick="toggleFav('${safeId}')" title="${isFav?'お気に入り解除':'お気に入り追加'}">${isFav?'⭐':'☆'}</button>
+        <button class="action-btn" onclick="openCommentModal('${safeId}')">💬 <span id="cmt-${safeId}">${p.comment_count||0}</span></button>
+        <button class="action-btn" onclick="sharePost('${safeId}')">🔗</button>
       </div>
     </div>`;
 }
@@ -1256,11 +1277,11 @@ function renderComments(comments) {
     const time = new Date(c.created_at).toLocaleString('ja-JP', {month:'numeric',day:'numeric',hour:'2-digit',minute:'2-digit'});
     return `
       <div class="comment-item">
-        <div class="comment-avatar" style="background:${bg}">${initial}</div>
+        <div class="comment-avatar" style="background:${bg}">${escapeHTML(initial)}</div>
         <div class="comment-bubble">
-          <div class="comment-author">${name}</div>
-          <div class="comment-text">${c.body.replace(/</g,'&lt;').replace(/>/g,'&gt;')}</div>
-          <div class="comment-time">${time}</div>
+          <div class="comment-author">${escapeHTML(name)}</div>
+          <div class="comment-text">${escapeHTML(c.body)}</div>
+          <div class="comment-time">${escapeHTML(time)}</div>
         </div>
       </div>`;
   }).join('');
