@@ -365,10 +365,10 @@ header { background: var(--indigo-dark); color: #fff; padding: 0 1.25rem; displa
 </div>
 
 <div class="stats-bar">
-  <div class="stat"><span class="stat-num" id="stat-posts">1,284</span><span class="stat-label">投稿数</span></div>
-  <div class="stat"><span class="stat-num">8,671</span><span class="stat-label">参加者</span></div>
-  <div class="stat"><span class="stat-num">47</span><span class="stat-label">都道府県</span></div>
-  <div class="stat"><span class="stat-num">312</span><span class="stat-label">市区町村</span></div>
+  <div class="stat"><span class="stat-num" id="stat-posts">…</span><span class="stat-label">投稿数</span></div>
+  <div class="stat"><span class="stat-num" id="stat-authors">…</span><span class="stat-label">参加者</span></div>
+  <div class="stat"><span class="stat-num" id="stat-areas">…</span><span class="stat-label">エリア</span></div>
+  <div class="stat"><span class="stat-num" id="stat-regions">…</span><span class="stat-label">市区町村</span></div>
 </div>
 
 <div class="tabs">
@@ -920,14 +920,26 @@ function setNav(el) { document.querySelectorAll('.nav-item').forEach(n => n.clas
 async function loadPosts() {
   showLoading(true);
   try {
-    const { data, error } = await db.from('投稿').select('*').order('created_at', { ascending: false });
-    if (error) throw error;
-    postData = data.length ? data.map(row => ({
+    // 投稿とコメント数を並行取得
+    const [postsRes, commentsRes] = await Promise.all([
+      db.from('投稿').select('*').order('created_at', { ascending: false }),
+      db.from('コメント').select('post_id'),
+    ]);
+    if (postsRes.error) throw postsRes.error;
+
+    // コメント数を集計
+    const commentCounts = {};
+    (commentsRes.data || []).forEach(c => {
+      commentCounts[c.post_id] = (commentCounts[c.post_id] || 0) + 1;
+    });
+
+    postData = postsRes.data.length ? postsRes.data.map(row => ({
       id: row.id, cat: row.カテゴリ||'spot', region: row.領域||'', area: row.エリア||'user',
       emoji: row.絵文字||CAT_EMOJI[row.カテゴリ]||'📍', bg: CAT_BG[row.カテゴリ]||'#E1F5EE',
       title: row.タイトル, desc: row.説明文||'', author_name: row.author_name||'匿名',
       av: AV_COLORS[Math.abs(hashStr(row.author_name||''))%AV_COLORS.length],
       likes: row.いいね||0, liked: likedSet.has(String(row.id)),
+      comment_count: commentCounts[String(row.id)] || 0,
       lat: null, lng: null,
     })) : SAMPLE_POSTS;
   } catch(e) { postData = SAMPLE_POSTS; }
@@ -940,7 +952,19 @@ function showLoading(on) {
   const c = document.getElementById('posts-container');
   if(on) c.innerHTML = '<p style="color:var(--text-sub);font-size:0.87rem;text-align:center;padding:2rem 0;">読み込み中…</p>';
 }
-function updateStatCount() { document.getElementById('stat-posts').textContent = postData.length.toLocaleString(); }
+function updateStatCount() {
+  // 投稿数
+  document.getElementById('stat-posts').textContent = postData.length.toLocaleString();
+  // 参加者数（ユニークな投稿者名）
+  const uniqueAuthors = new Set(postData.map(p => p.author_name)).size;
+  document.getElementById('stat-authors').textContent = uniqueAuthors.toLocaleString();
+  // エリア数（地方ブロック）
+  const uniqueAreas = new Set(postData.map(p => p.area).filter(a => a && a !== 'user')).size;
+  document.getElementById('stat-areas').textContent = uniqueAreas.toLocaleString();
+  // 市区町村数（ユニークな地域名）
+  const uniqueRegions = new Set(postData.map(p => p.region).filter(r => r)).size;
+  document.getElementById('stat-regions').textContent = uniqueRegions.toLocaleString();
+}
 
 async function savePostToDB(title, desc, region, cat) {
   try {
